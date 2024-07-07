@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Home = () => {
   return (
-    <div className="h-[70vh] mt-2">
+    <div className="mt-2">
       <Header />
       <Presentation />
     </div>
@@ -48,7 +48,7 @@ const Presentation = () => {
   const { title, subTitle, content, button1, button2 } = WebConfig.home;
 
   return (
-    <div className=" py-10 h-[80%] flex justify-center items-center gap-x-28">
+    <div className=" py-10 my-32 flex justify-center items-center gap-x-28">
       <Image
         src={profile}
         alt="Photo de profile"

@@ -1,9 +1,38 @@
-import React from 'react'
+import WebConfig from "@/config";
+import Image from "next/image";
+import React from "react";
 
 const Services = () => {
-  return (
-    <div>Services</div>
-  )
-}
+  const service = React.useMemo(
+    () => WebConfig.routePath.find((item) => item.name.includes("services")),
+    []
+  );
 
-export default Services
+  return (
+    <div className="mb-40">
+      <h2 className="mb-20">{WebConfig.services.title}</h2>
+
+      <div className="flex justify-start items-stretch w-full  h-max">
+        {WebConfig.services.card.map((item) => (
+          <div
+            key={item.title}
+            className="flex-1 flex flex-col gap-y-7 m-0 p-0 ml-5 justify-between items-start "
+          >
+            <Image
+              src={item.img}
+              alt={item.title}
+              width={50}
+              height={50}
+              className="object-contain"
+            />
+            <h4>{item.title}</h4>
+            <p>{item.content}</p>
+            <h5 className="align-bottom">{item.subTitle}</h5>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Services;
