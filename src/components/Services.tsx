@@ -8,9 +8,9 @@ const Services = () => {
     []
   );
 
-  return (
+  return (  
     <div className="mb-40">
-      <h2 className="mb-20">{WebConfig.services.title}</h2>
+      <h2 className="mb-16">{WebConfig.services.title}</h2>
 
       <div className="flex justify-start items-stretch w-full  h-max">
         {WebConfig.services.card.map((item) => (
