@@ -5,8 +5,8 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="mb-40">
-      <h2 className="mb-16">{WebConfig.about.title}</h2>
+    <div className="mb-32 sm:mb-40">
+      <h2 className="mb-5 sm:mb-16">{WebConfig.about.title}</h2>
 
       <div className="flex flex-row  w-full justify-between">
         <div className="w-[60%] flex flex-col ">

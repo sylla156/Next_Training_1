@@ -120,6 +120,10 @@
     font-weight: 400;
     font-size: 1em;
   }
+
+  span{
+    font-size: 0.8em;
+  }
   
 }
 /* Buttons */

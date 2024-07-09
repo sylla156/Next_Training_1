@@ -16,6 +16,9 @@ const config: Config = {
         secondary: "#336699",
         primary: "#FF6666",
       },
+      screens:{
+        'sm':'768px'
+      }
     },
   },
   plugins: [],

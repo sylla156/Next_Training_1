@@ -9,10 +9,10 @@ const Services = () => {
   );
 
   return (  
-    <div className="mb-40">
-      <h2 className="mb-16">{WebConfig.services.title}</h2>
+    <div className="mb-32 sm:mb-40">
+      <h2 className="mb-8 sm:mb-16">{WebConfig.services.title}</h2>
 
-      <div className="flex justify-start items-stretch w-full  h-max">
+      <div className="flex flex-col justify-stretch items-center gap-y-8 sm:flex-row sm:justify-start sm:items-stretch w-full sm:h-max">
         {WebConfig.services.card.map((item) => (
           <div
             key={item.title}
