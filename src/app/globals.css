@@ -18,38 +18,38 @@
   }
 
   h1 {
-    font-size: 45px;
+    font-size: 2.8em;
   }
 
   h2 {
-    font-size: 38px;
+    font-size: 2.3em;
   }
 
   h3 {
-    font-size: 33px;
+    font-size: 2em;
   }
 
   h4 {
-    font-size: 24px;
+    font-size: 1.8em;
   }
 
   h5 {
-    font-size: 22px;
+    font-size: 1.5em;
   }
 
   h6 {
-    font-size: 22px;
+    font-size: 1.3em;
   }
 
   p {
     @apply font-hind;
     @apply text-gray-600;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 1.2em;
   }
 
   a {
-    font-size: 20px;
+    font-size: 1.2em;
   }
 
   button {
@@ -77,7 +77,7 @@
     @apply text-black;
     @apply px-4;
     @apply py-1;
-    font-size: 1.2rem;
+    font-size: 1.2em;
   }
 
   input {
@@ -94,7 +94,7 @@
     @apply py-6;
     @apply font-spartan;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 1.2em;
   }
 
   .textarea {
@@ -108,9 +108,17 @@
     @apply text-left;
     @apply align-text-top; /* Alignement en haut */
     font-weight: 400;
-    font-size: 20px;
+    font-size: 1.2em;
     @apply font-spartan;
 
+  }
+
+
+  .footerText {
+    @apply font-hind;
+    @apply text-gray-600;
+    font-weight: 400;
+    font-size: 1em;
   }
   
 }

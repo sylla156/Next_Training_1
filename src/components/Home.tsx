@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../../public/icons/logo.png";
 import profile from "../../public/images/profile.jpeg";
 import WebConfig from "@/config";
 import Link from "next/link";
+import Logo from "@/utils/Logo";
 
 const Home = () => {
   return (
@@ -17,14 +17,7 @@ const Home = () => {
 const Header = () => {
   return (
     <header className="flex justify-between items-center">
-      <Image
-        src={logo}
-        alt="Sylla Ibrahim"
-        width={70}
-        height={70}
-        className="object-contain"
-      />
-
+      <Logo />
       <nav>
         <ul className="flex justify-between gap-x-5 ">
           {WebConfig.routePath.map((route, index) => (

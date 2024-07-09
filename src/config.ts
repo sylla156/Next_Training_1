@@ -32,7 +32,7 @@ type Card = {
   linkContent: string;
 };
 
-type WEBCONFIG = {
+interface WEBCONFIG  {
   routePath: routePath[];
   home: {
     title: string;
@@ -70,6 +70,19 @@ type WEBCONFIG = {
       [key: string]: string;
     };
   };
+  footer:{
+    section1:{
+      name:string;
+      title:string;
+    },
+    section2:{ 
+    title:string;
+    github:{
+      title:string;
+      link:string
+    }
+  }
+  }
 };
 
 const WebConfig: WEBCONFIG = {
@@ -120,8 +133,11 @@ const WebConfig: WEBCONFIG = {
 
   about: {
     title: "About 👱‍♂️ 💼 Me",
+
     content: ["I started as a frontend developer in college, and later I co-founded Aroliant Internet Private Limited with a friend. As a director and a developer, I learned a lot about managing a company, team, and projects. ", "And in two years, I found my passion for design. In 2020 for personal reasons, I became a freelancer. Now, I’m selling digital goods on the web and working on freelance projects. I love helping small businesses to create their online presence and help setting up their own online store (e-commerce) to boost their business. ", "My design work ensures that it is developer-friendly as it passes through the lens of my experience as a frontend developer. When I design, I make sure it is 100% implementable by a frontend developer without any difficulties. I call it “Design for Code.” "],
+
     quote: "❤️  I love good design, gaming, art, netflix, and gadgets.",
+
     card: [
       {
         img: udacity,
@@ -157,6 +173,17 @@ const WebConfig: WEBCONFIG = {
       submit: "Get in touch",
     },
   },
+
+  footer: {
+    section1:{
+      name:'Sylla Ibrahim',
+      title:'Freelance Full Stack Designer'
+    },
+    section2:{
+      title:'Designed using Figma',
+      github:{title:'Hosted on Github Pages',link:'https://github.com' }
+    }
+  }
 };
 
 export default WebConfig;
