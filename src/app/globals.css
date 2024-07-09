@@ -71,5 +71,47 @@
     @apply px-8;
     @apply py-3;
   }
+
+  .button_secondary_sm {
+    @apply bg-primary;
+    @apply text-black;
+    @apply px-4;
+    @apply py-1;
+    font-size: 1.2rem;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    @apply bg-gray-200;
+    @apply rounded-md;
+    @apply w-full;
+    @apply h-10;
+    @apply px-4; 
+  }
+
+  input::placeholder {
+    @apply py-6;
+    @apply font-spartan;
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .textarea {
+    @apply border-none;
+    @apply outline-none;
+    @apply bg-gray-200;
+    @apply rounded-md;
+    @apply w-full;
+    @apply h-40; /* Taille pour simuler une area */
+    @apply p-4;  /* Padding pour le texte */
+    @apply text-left;
+    @apply align-text-top; /* Alignement en haut */
+    font-weight: 400;
+    font-size: 20px;
+    @apply font-spartan;
+
+  }
+  
 }
 /* Buttons */

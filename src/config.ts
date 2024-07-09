@@ -152,7 +152,7 @@ const WebConfig: WEBCONFIG = {
     form: {
       name: "Your name",
       email: "Your email",
-      websit: "Your website (if exists)",
+      website: "Your website (if exists)",
       desc: "How can i help ?",
       submit: "Get in touch",
     },

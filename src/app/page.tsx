@@ -11,7 +11,7 @@ export default function app() {
       <Services />
       <Work />
       <About />
-      {/* <Contact /> */}
+      <Contact />
     </>
   );
 }
