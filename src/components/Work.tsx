@@ -1,10 +1,13 @@
 import WebConfig from "@/config";
+import { Content } from "@/context/ContentProvider";
 import { theme } from "@/context/ThemeProvider";
 import Image from "next/image";
 import React from "react";
 
 const Work = () => {
   const themeColor = React.useContext(theme);
+  const { websiteContent: WebConfig, setWebsiteContent } =
+    React.useContext(Content);
   return (
     <div
       className="mb-32 sm:mb-48"

@@ -27,7 +27,6 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     } else {
       document.documentElement.classList.remove("light");
     }
-    console.log(themeValue.theme)
   }, [themeValue]);
 
   return (

@@ -1,31 +1,44 @@
-'use client'
+"use client";
 
-import React, { SetStateAction, use } from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import profile from "../../public/images/profile.jpeg";
-import burger from '../../public/icons/burger.svg';
-import close from '../../public/icons/close.svg';
-import WebConfig from "@/config";
+import burger from "../../public/icons/burger.svg";
+import burgerDark from "../../public/icons/burgerDark.svg";
+import close from "../../public/icons/close.svg";
 import Link from "next/link";
 import Logo from "@/utils/Logo";
+import { Content } from "@/context/ContentProvider";
+import { theme } from "@/context/ThemeProvider";
 
 const Home = () => {
-  const [toogle,setToggle] = React.useState(true);
-
+  const [toogle, setToggle] = React.useState(true);
+  const { websiteContent: WebConfig } = React.useContext(Content);
   return (
-    <div className="mt-2" id={WebConfig.routePath.find(item => item.path === '#home')?.name.toLowerCase()} >
-      <Header setToggle={setToggle}/>
+    <div
+      className="mt-2"
+      id={WebConfig.routePath
+        .find((item) => item.path === "#home")
+        ?.name.toLowerCase()}
+    >
+      <Header setToggle={setToggle} />
       <Presentation />
       <Navbar toggle={toogle} setToggle={setToggle} />
     </div>
-  ); 
+  );
 };
 
-const Header = ({setToggle}:{setToggle:React.Dispatch<SetStateAction<boolean>>}) => {
+const Header = ({
+  setToggle,
+}: {
+  setToggle: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const { websiteContent: WebConfig } = React.useContext(Content);
+  const { theme: themeColor } = useContext(theme);
   return (
     <header className="flex justify-between items-center">
       <Logo />
-      <nav className='hidden sm:block'>
+      <nav className="hidden sm:block">
         <ul className="flex justify-between gap-x-5">
           {WebConfig.routePath.map((route, index) => (
             <li key={route.path}>
@@ -33,20 +46,30 @@ const Header = ({setToggle}:{setToggle:React.Dispatch<SetStateAction<boolean>>})
                 href={route.path}
                 className="font-spartan text-secondary dark:text-primary text-3xl"
               >
-                <span className="text-primary dark:text-secondary">{index + 1}. </span>
+                <span className="text-primary dark:text-secondary">
+                  {index + 1}.{" "}
+                </span>
                 <span className="capitalize font-spartan">{route.name}</span>
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-      <button className="sm:hidden" onClick={() => setToggle(false)}><Image src={burger} alt="close" width={50}/></button>
-
+      <button className="sm:hidden" onClick={() => setToggle(false)}>
+        {themeColor === "light" ? (
+          <Image src={burger} alt="close" width={50} />
+        ) : (
+          <Image src={burgerDark} alt="close" width={50} />
+        )}
+      </button>
     </header>
   );
 };
 
 const Presentation = () => {
+  const { websiteContent: WebConfig, setWebsiteContent } =
+    React.useContext(Content);
+
   const { title, subTitle, content, button1, button2 } = WebConfig.home;
 
   return (
@@ -65,36 +88,56 @@ const Presentation = () => {
           <p>{content}</p>
         </div>
         <div className="flex justify-center flex-wrap gap-y-5 sm:gap-y-0 sm:justify-start sm:items-center gap-x-6 mt-2 sm:flex-none">
-          <button className="button_primary w-full xsm:w-auto">{button1.name}</button>
-          <button className="button_secondary w-full xsm:w-auto">{button2.name}</button>
+          <button className="button_primary w-full xsm:w-auto">
+            {button1.name}
+          </button>
+          <button className="button_secondary w-full xsm:w-auto">
+            {button2.name}
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
+const Navbar = ({
+  setToggle,
+  toggle,
+}: {
+  toggle: boolean;
+  setToggle: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const { websiteContent: WebConfig, setWebsiteContent } =
+    React.useContext(Content);
+  const classname = toggle ? "translate-x-[200vw]" : "fixtranslate-x-[-200vw]";
 
-const Navbar = ({setToggle,toggle}:{ toggle: boolean; setToggle: React.Dispatch<SetStateAction<boolean>>; }) => {
-  const classname =  toggle ? 'translate-x-[200vw]' : 'fixtranslate-x-[-200vw]'
-
-  return     <div className={`bg-gray-300 h-screen w-screen fixed top-0 left-0 transition ease-in-out duration-500 ${classname} overflow-hidden`} >
-  <button className="absolute top-0 right-5 py-10 px-5" onClick={() => setToggle(true)}><Image src={close} alt="close" width={35}/></button>
-<nav className="h-full w-full ">
-  <ul className="h-full w-full flex flex-col justify-center items-center gap-y-3">
-    {WebConfig.routePath.map((route, index) => (
-     <li key={route.path} onClick={() => setToggle(true)}>
-        <Link
-          href={route.path}
-          className="font-spartan text-secondary text-3xl hover:underline"
-        >
-          <span className="text-primary">{index + 1}. </span>
-          <span className="capitalize font-spartan">{route.name}</span>
-        </Link>
-      </li>
-    ))}
-  </ul>
-</nav>
-</div>
-}
+  return (
+    <div
+      className={`bg-gray-300 h-screen w-screen fixed top-0 left-0 transition ease-in-out duration-500 ${classname} overflow-hidden`}
+    >
+      <button
+        className="absolute top-0 right-5 py-10 px-5"
+        onClick={() => setToggle(true)}
+      >
+        <Image src={close} alt="close" width={35} />
+      </button>
+      <nav className="h-full w-full ">
+        <ul className="h-full w-full flex flex-col justify-center items-center gap-y-3">
+          {WebConfig.routePath.map((route, index) => (
+            <li key={route.path} onClick={() => setToggle(true)}>
+              <Link
+                href={route.path}
+                className="font-spartan text-secondary text-[3em] hover:underline"
+              >
+                <span className="text-primary">{index + 1}. </span>
+                <span className="capitalize font-spartan">{route.name}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  );
+};
 
 export default Home;

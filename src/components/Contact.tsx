@@ -1,6 +1,7 @@
 "use client";
 
 import WebConfig from "@/config";
+import { Content } from "@/context/ContentProvider";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import React from "react";
@@ -20,11 +21,18 @@ const Contact = () => {
   const { register, handleSubmit } = useForm<formType>({
     resolver: zodResolver(formSchema),
   });
+  const { websiteContent: WebConfig, setWebsiteContent } =
+    React.useContext(Content);
 
   const onSubmit = (data: formType) => {};
 
   return (
-    <div className="mb-32 sm:mb-60 flex flex-col justify-center items-stretch  sm:flex-row sm:justify-between sm:items-stretch h-full" id={WebConfig.routePath.find(item => item.path === '#contact')?.name.toLowerCase()}>
+    <div
+      className="mb-32 sm:mb-60 flex flex-col justify-center items-stretch  sm:flex-row sm:justify-between sm:items-stretch h-full"
+      id={WebConfig.routePath
+        .find((item) => item.path === "#contact")
+        ?.name.toLowerCase()}
+    >
       <section className="flex flex-col justify-start items-start w-full sm:max-w-[40%]">
         <h2 className="mb-8">{WebConfig.contact.title}</h2>
         <p className="mb-18">{WebConfig.contact.content}</p>
@@ -77,27 +85,31 @@ const Contact = () => {
             {WebConfig.contact.form.submit}
           </button>
         </form>
-       <div className="flex justify-between items-baseline mt-5 sm:hidden">
-       <section >
-          <p className="text-gray-500 mt-6">{WebConfig.contact.email.title}</p>
-          <p className="text-gray-800 mb-10">{WebConfig.contact.email.link}</p>
-        </section>
-        <section >
-          <p className="text-gray-900 mb-2">
-            {WebConfig.contact.network.title}
-          </p>
-          <section className="flex gap-x-5">
-            {WebConfig.contact.network.imgs.map((img, index) => (
-              <Image
-                key={index}
-                src={img}
-                alt={"Network" + (index + 1)}
-                className="w-8 h-auto object-contain"
-              />
-            ))}
+        <div className="flex justify-between items-baseline mt-5 sm:hidden">
+          <section>
+            <p className="text-gray-500 mt-6">
+              {WebConfig.contact.email.title}
+            </p>
+            <p className="text-gray-800 mb-10">
+              {WebConfig.contact.email.link}
+            </p>
           </section>
-        </section>
-       </div>
+          <section>
+            <p className="text-gray-900 mb-2">
+              {WebConfig.contact.network.title}
+            </p>
+            <section className="flex gap-x-5">
+              {WebConfig.contact.network.imgs.map((img, index) => (
+                <Image
+                  key={index}
+                  src={img}
+                  alt={"Network" + (index + 1)}
+                  className="w-8 h-auto object-contain"
+                />
+              ))}
+            </section>
+          </section>
+        </div>
       </div>
     </div>
   );

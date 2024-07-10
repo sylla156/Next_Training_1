@@ -90,7 +90,7 @@
     @apply rounded-md;
     @apply w-full;
     @apply h-10;
-    @apply px-4; 
+    @apply px-4;
   }
 
   input::placeholder {
@@ -107,15 +107,13 @@
     @apply rounded-md;
     @apply w-full;
     @apply h-40; /* Taille pour simuler une area */
-    @apply p-4;  /* Padding pour le texte */
+    @apply p-4; /* Padding pour le texte */
     @apply text-left;
     @apply align-text-top; /* Alignement en haut */
     font-weight: 400;
     font-size: 1.2em;
     @apply font-spartan;
-
   }
-
 
   .footerText {
     @apply font-hind;
@@ -125,9 +123,8 @@
     font-size: 1em;
   }
 
-  span{
+  span {
     font-size: 0.8em;
   }
-  
 }
 /* Buttons */

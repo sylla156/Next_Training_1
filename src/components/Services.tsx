@@ -2,7 +2,7 @@ import WebConfig from "@/config";
 import Image from "next/image";
 import React from "react";
 import type { Metadata } from "next";
-
+import { Content } from "@/context/ContentProvider";
 
 export const metadata: Metadata = {
   title: "Landing page",
@@ -10,13 +10,20 @@ export const metadata: Metadata = {
 };
 
 const Services = () => {
+  const { websiteContent: WebConfig, setWebsiteContent } =
+    React.useContext(Content);
   const service = React.useMemo(
     () => WebConfig.routePath.find((item) => item.name.includes("services")),
-    []
+    [WebConfig.routePath]
   );
 
-  return (  
-    <div className="mb-32 sm:mb-40" id={WebConfig.routePath.find(item => item.path === '#services')?.name.toLowerCase()}>
+  return (
+    <div
+      className="mb-32 sm:mb-40"
+      id={WebConfig.routePath
+        .find((item) => item.path === "#services")
+        ?.name.toLowerCase()}
+    >
       <h2 className="mb-8 sm:mb-16">{WebConfig.services.title}</h2>
 
       <div className="flex flex-col justify-stretch items-center gap-y-8 sm:flex-row sm:justify-start sm:items-stretch w-full sm:h-max">

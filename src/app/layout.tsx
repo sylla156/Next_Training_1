@@ -1,23 +1,24 @@
 import "./globals.css";
 import Footer from "@/components/Footer";
-import ThemeProvider, { theme } from "@/context/ThemeProvider";
-
-
+import ContentProvider from "@/context/ContentProvider";
+import ThemeProvider from "@/context/ThemeProvider";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.count()
   return (
     <ThemeProvider>
-      <html lang="en">
-        <body>
-          {children}
-          <Footer />
-        </body>
-      </html>
+      <ContentProvider>
+        <html lang="en">
+          <body>
+            {children}
+            <Footer />
+          </body>
+        </html>
+      </ContentProvider>
     </ThemeProvider>
   );
 }
-

@@ -46,7 +46,9 @@ type Card = {
   linkContent: string;
 };
 
-interface WEBCONFIG {
+export type languages = "en" | "fr" | "es";
+
+export interface WEBCONFIG {
   routePath: routePath[];
   home: {
     title: string;
@@ -100,124 +102,384 @@ interface WEBCONFIG {
   };
 }
 
-const WebConfig: WEBCONFIG = {
-  routePath: [
-    { path: "#services", name: "services", hidden: false },
-    { path: "#work", name: "Work" },
-    { path: "#about", name: "About" },
-    { path: "#contact", name: "contact" },
-  ],
-  home: {
-    title: "Freelance Full Stack Designer",
-    subTitle: "Hi 👋, i'm Sylla Ibrahim",
-    content: '"good design makes the world a better places"',
-    button1: { path: "#work", name: "My Work" },
-    button2: { path: "#contact", name: "Let's talk" },
+interface GLOBALEWEBCONFIG {
+  languages: languages[];
+  translations: { [key in languages]: WEBCONFIG };
+}
+
+export const languageTable: {
+  language: languages;
+  name: { [key in languages]: string };
+  logo: string;
+}[] = [
+  {
+    language: "fr",
+    name: { en: "French", fr: "Français", es: "Francés" },
+    logo: "🇫🇷",
   },
-  services: {
-    title: "What I do",
-    card: [
-      {
-        img: mobile,
-        title: "Mobile & Web Design",
+  {
+    language: "en",
+    name: { en: "English", fr: "Anglais", es: "Inglés" },
+    logo: "🇺🇸",
+  },
+  {
+    language: "es",
+    name: { en: "Spanish", fr: "Espagnol", es: "Español" },
+    logo: "🇪🇸",
+  },
+];
+
+const GlobaleWebConfig: GLOBALEWEBCONFIG = {
+  languages: ["en", "es", "fr"],
+  translations: {
+    en: {
+      routePath: [
+        { path: "#services", name: "services", hidden: false },
+        { path: "#work", name: "Work" },
+        { path: "#about", name: "About" },
+        { path: "#contact", name: "contact" },
+      ],
+      home: {
+        title: "Freelance Full Stack Designer",
+        subTitle: "Hi 👋, I'm Sylla Ibrahim",
+        content: "good design makes the world a better place",
+        button1: { path: "#work", name: "My Work" },
+        button2: { path: "#contact", name: "Let's talk" },
+      },
+      services: {
+        title: "What I do",
+        card: [
+          {
+            img: mobile,
+            title: "Mobile & Web Design",
+            content:
+              "Need a website or mobile app? I can create beautiful websites or mobile apps based on your content, or redesign your old website to improve user engagement or achieve your business goals.",
+            subTitle: "Get an estimate",
+          },
+          {
+            img: graphic,
+            title: "Graphic Design",
+            content:
+              "Need art for your project? I can create beautiful art, designs based on your project requirements such as business cards, digital banners, icons, logos, hand-drawn characters, abstracts, textures, etc.",
+            subTitle: "Get an estimate",
+          },
+          {
+            img: frontend,
+            title: "Frontend Development",
+            content:
+              "Already have the design? I can create static websites such as landing pages, company sites, and custom websites with minimal JavaScript. Will deliver a well-documented code.",
+            subTitle: "Get an estimate",
+          },
+        ],
+      },
+      work: {
+        title: "Where to find 🔍 my work",
+        imgs: [dri, dev, art, ske, cg, be, artm, sp, ad, fr],
+        darkImgs: [
+          driDark,
+          devDark,
+          artDark,
+          skeDark,
+          cgDark,
+          beDark,
+          artmDark,
+          spDark,
+          adDark,
+          frDark,
+        ],
+      },
+      about: {
+        title: "About 👱‍♂️ 💼 Me",
+        content: [
+          "I started as a frontend developer in college, and later I co-founded Aroliant Internet Private Limited with a friend. As a director and a developer, I learned a lot about managing a company, team, and projects.",
+          "And in two years, I found my passion for design. In 2020 for personal reasons, I became a freelancer. Now, I’m selling digital goods on the web and working on freelance projects. I love helping small businesses to create their online presence and help setting up their own online store (e-commerce) to boost their business.",
+          "My design work ensures that it is developer-friendly as it passes through the lens of my experience as a frontend developer. When I design, I make sure it is 100% implementable by a frontend developer without any difficulties. I call it “Design for Code.”",
+        ],
+        quote: "❤️ I love good design, gaming, art, Netflix, and gadgets.",
+        card: [
+          {
+            img: udacity,
+            imgDark: udacityDark,
+            title: "User Experience Nanodegree",
+            content: "The right way to design anything.",
+            linkContent: "View Certificate",
+          },
+          {
+            img: upwork,
+            imgDark: upworkDark,
+            title: "Available via Upwork",
+            content: "Top rated freelancer on Upwork",
+            linkContent: "Hire Me",
+          },
+        ],
+      },
+      contact: {
+        title: "📅 Schedule a consult.",
         content:
-          "Need a website or mobile app? I can create beautiful websites or mobile apps based on your content, or redesign your old website to improve user engagement or achieve your business goals.",
-        subTitle: "Get an estimate",
+          "I am always open to discuss your project, improve your online presence or help with your UX/UI design challenges.",
+        email: {
+          title: "📧 Email me at",
+          link: "hi@narendra.design",
+        },
+        network: {
+          title: "Follow",
+          imgs: [tweeter, linkedin, notion],
+        },
+        form: {
+          name: "Your name",
+          email: "Your email",
+          website: "Your website (if exists)",
+          desc: "How can I help?",
+          submit: "Get in touch",
+        },
       },
-      {
-        img: graphic,
-        title: "Graphic Design",
+      footer: {
+        section1: {
+          name: "Sylla Ibrahim",
+          title: "Freelance Full Stack Designer",
+        },
+        section2: {
+          title: "Designed using Figma",
+          github: {
+            title: "Hosted on Github Pages",
+            link: "https://github.com",
+          },
+        },
+      },
+    },
+    es: {
+      routePath: [
+        { path: "#services", name: "servicios", hidden: false },
+        { path: "#work", name: "Trabajo" },
+        { path: "#about", name: "Acerca de" },
+        { path: "#contact", name: "contacto" },
+      ],
+      home: {
+        title: "Diseñador Freelance Full Stack",
+        subTitle: "Hola 👋, soy Sylla Ibrahim",
+        content: "el buen diseño hace del mundo un lugar mejor",
+        button1: { path: "#work", name: "Mi Trabajo" },
+        button2: { path: "#contact", name: "Hablemos" },
+      },
+      services: {
+        title: "Lo que hago",
+        card: [
+          {
+            img: mobile,
+            title: "Diseño Móvil y Web",
+            content:
+              "¿Necesitas un sitio web o una aplicación móvil? Puedo crear hermosos sitios web o aplicaciones móviles basadas en tu contenido, o rediseñar tu antiguo sitio web para mejorar la interacción del usuario o alcanzar tus objetivos comerciales.",
+            subTitle: "Obtén una estimación",
+          },
+          {
+            img: graphic,
+            title: "Diseño Gráfico",
+            content:
+              "¿Necesitas arte para tu proyecto? Puedo crear hermosas obras de arte, diseños basados en los requisitos de tu proyecto, como tarjetas de visita, banners digitales, iconos, logotipos, personajes dibujados a mano, abstractos, texturas, etc.",
+            subTitle: "Obtén una estimación",
+          },
+          {
+            img: frontend,
+            title: "Desarrollo Frontend",
+            content:
+              "¿Ya tienes el diseño? Puedo crear sitios web estáticos, como páginas de destino, sitios de empresas y sitios web personalizados con JavaScript mínimo. Entregaré un código bien documentado.",
+            subTitle: "Obtén una estimación",
+          },
+        ],
+      },
+      work: {
+        title: "Dónde encontrar 🔍 mi trabajo",
+        imgs: [dri, dev, art, ske, cg, be, artm, sp, ad, fr],
+        darkImgs: [
+          driDark,
+          devDark,
+          artDark,
+          skeDark,
+          cgDark,
+          beDark,
+          artmDark,
+          spDark,
+          adDark,
+          frDark,
+        ],
+      },
+      about: {
+        title: "Acerca de 👱‍♂️ 💼 Mí",
+        content: [
+          "Comencé como desarrollador frontend en la universidad, y luego cofundé Aroliant Internet Private Limited con un amigo. Como director y desarrollador, aprendí mucho sobre la gestión de una empresa, equipo y proyectos.",
+          "Y en dos años, descubrí mi pasión por el diseño. En 2020 por razones personales, me convertí en freelancer. Ahora, vendo bienes digitales en la web y trabajo en proyectos freelance. Me encanta ayudar a pequeñas empresas a crear su presencia en línea y ayudar a configurar su propia tienda en línea (e-commerce) para impulsar su negocio.",
+          "Mi trabajo de diseño garantiza que sea amigable para el desarrollador, ya que pasa por la lente de mi experiencia como desarrollador frontend. Cuando diseño, me aseguro de que sea 100% implementable por un desarrollador frontend sin ninguna dificultad. Lo llamo 'Diseño para Código'.",
+        ],
+        quote:
+          "❤️ Me encanta el buen diseño, los juegos, el arte, Netflix y los gadgets.",
+        card: [
+          {
+            img: udacity,
+            imgDark: udacityDark,
+            title: "Nanodegree de Experiencia de Usuario",
+            content: "La manera correcta de diseñar cualquier cosa.",
+            linkContent: "Ver Certificado",
+          },
+          {
+            img: upwork,
+            imgDark: upworkDark,
+            title: "Disponible a través de Upwork",
+            content: "Freelancer con mejor calificación en Upwork",
+            linkContent: "Contrátame",
+          },
+        ],
+      },
+      contact: {
+        title: "📅 Agenda una consulta.",
         content:
-          "Need art for your project? I can create beautiful art, designs based on your project requirements such as business cards, digital banners, icons, logos, hand-drawn characters, abstracts, textures, etc. ",
-        subTitle: "Get an estimate",
+          "Siempre estoy abierto a discutir tu proyecto, mejorar tu presencia en línea o ayudar con tus desafíos de diseño UX/UI.",
+        email: {
+          title: "📧 Envíame un correo a",
+          link: "hi@narendra.design",
+        },
+        network: {
+          title: "Sígueme",
+          imgs: [tweeter, linkedin, notion],
+        },
+        form: {
+          name: "Tu nombre",
+          email: "Tu correo electrónico",
+          website: "Tu sitio web (si existe)",
+          desc: "¿Cómo puedo ayudarte?",
+          submit: "Ponte en contacto",
+        },
       },
-      {
-        img: frontend,
-        title: "Frontend Development",
+      footer: {
+        section1: {
+          name: "Sylla Ibrahim",
+          title: "Diseñador Freelance Full Stack",
+        },
+        section2: {
+          title: "Diseñado usando Figma",
+          github: {
+            title: "Alojado en Github Pages",
+            link: "https://github.com",
+          },
+        },
+      },
+    },
+    fr: {
+      routePath: [
+        { path: "#services", name: "services", hidden: false },
+        { path: "#work", name: "Travail" },
+        { path: "#about", name: "À propos" },
+        { path: "#contact", name: "contact" },
+      ],
+      home: {
+        title: "Designer Full Stack Freelance",
+        subTitle: "Salut 👋, je suis Sylla Ibrahim",
+        content: "un bon design rend le monde meilleur",
+        button1: { path: "#work", name: "Mon Travail" },
+        button2: { path: "#contact", name: "Discutons" },
+      },
+      services: {
+        title: "Ce que je fais",
+        card: [
+          {
+            img: mobile,
+            title: "Design Mobile & Web",
+            content:
+              "Besoin d'un site web ou d'une application mobile ? Je peux créer de beaux sites web ou applications mobiles basés sur votre contenu, ou redessiner votre ancien site web pour améliorer l'engagement des utilisateurs ou atteindre vos objectifs commerciaux.",
+            subTitle: "Obtenez une estimation",
+          },
+          {
+            img: graphic,
+            title: "Design Graphique",
+            content:
+              "Besoin d'art pour votre projet ? Je peux créer de belles œuvres d'art, des designs basés sur les exigences de votre projet, comme des cartes de visite, des bannières numériques, des icônes, des logos, des personnages dessinés à la main, des abstraits, des textures, etc.",
+            subTitle: "Obtenez une estimation",
+          },
+          {
+            img: frontend,
+            title: "Développement Frontend",
+            content:
+              "Vous avez déjà le design ? Je peux créer des sites web statiques comme des pages de destination, des sites d'entreprise et des sites web personnalisés avec un minimum de JavaScript. Je livrerai un code bien documenté.",
+            subTitle: "Obtenez une estimation",
+          },
+        ],
+      },
+      work: {
+        title: "Où trouver 🔍 mon travail",
+        imgs: [dri, dev, art, ske, cg, be, artm, sp, ad, fr],
+        darkImgs: [
+          driDark,
+          devDark,
+          artDark,
+          skeDark,
+          cgDark,
+          beDark,
+          artmDark,
+          spDark,
+          adDark,
+          frDark,
+        ],
+      },
+      about: {
+        title: "À propos 👱‍♂️ 💼 de moi",
+        content: [
+          "J'ai commencé comme développeur frontend à l'université, puis j'ai cofondé Aroliant Internet Private Limited avec un ami. En tant que directeur et développeur, j'ai beaucoup appris sur la gestion d'une entreprise, d'une équipe et de projets.",
+          "Et en deux ans, j'ai découvert ma passion pour le design. En 2020 pour des raisons personnelles, je suis devenu freelance. Maintenant, je vends des biens numériques sur le web et je travaille sur des projets freelance. J'aime aider les petites entreprises à créer leur présence en ligne et à configurer leur propre boutique en ligne (e-commerce) pour booster leur activité.",
+          "Mon travail de design garantit qu'il est convivial pour les développeurs, car il passe par le prisme de mon expérience en tant que développeur frontend. Lorsque je conçois, je m'assure qu'il est 100% implémentable par un développeur frontend sans aucune difficulté. Je l'appelle 'Design for Code'.",
+        ],
+        quote:
+          "❤️ J'aime le bon design, les jeux, l'art, Netflix et les gadgets.",
+        card: [
+          {
+            img: udacity,
+            imgDark: udacityDark,
+            title: "Nanodegree d'Expérience Utilisateur",
+            content: "La bonne façon de concevoir n'importe quoi.",
+            linkContent: "Voir le Certificat",
+          },
+          {
+            img: upwork,
+            imgDark: upworkDark,
+            title: "Disponible via Upwork",
+            content: "Freelance très bien noté sur Upwork",
+            linkContent: "Engagez-moi",
+          },
+        ],
+      },
+      contact: {
+        title: "📅 Planifiez une consultation.",
         content:
-          "Already have the design? I can create static websites such as landing pages, company sites, and custom websites with minimal javascript. Will deliver a well-documented code. ",
-        subTitle: "Get and estimate",
+          "Je suis toujours ouvert à discuter de votre projet, à améliorer votre présence en ligne ou à vous aider avec vos défis de conception UX/UI.",
+        email: {
+          title: "📧 Envoyez-moi un email à",
+          link: "hi@narendra.design",
+        },
+        network: {
+          title: "Suivez-moi",
+          imgs: [tweeter, linkedin, notion],
+        },
+        form: {
+          name: "Votre nom",
+          email: "Votre email",
+          website: "Votre site web (si existe)",
+          desc: "Comment puis-je vous aider ?",
+          submit: "Prenez contact",
+        },
       },
-    ],
-  },
-
-  work: {
-    title: "Where to find 🔍 my work",
-    imgs: [dri, dev, art, ske, cg, be, artm, sp, ad, fr],
-    darkImgs: [
-      driDark,
-      devDark,
-      artDark,
-      skeDark,
-      cgDark,
-      beDark,
-      artmDark,
-      spDark,
-      adDark,
-      frDark,
-    ],
-  },
-
-  about: {
-    title: "About 👱‍♂️ 💼 Me",
-
-    content: [
-      "I started as a frontend developer in college, and later I co-founded Aroliant Internet Private Limited with a friend. As a director and a developer, I learned a lot about managing a company, team, and projects. ",
-      "And in two years, I found my passion for design. In 2020 for personal reasons, I became a freelancer. Now, I’m selling digital goods on the web and working on freelance projects. I love helping small businesses to create their online presence and help setting up their own online store (e-commerce) to boost their business. ",
-      "My design work ensures that it is developer-friendly as it passes through the lens of my experience as a frontend developer. When I design, I make sure it is 100% implementable by a frontend developer without any difficulties. I call it “Design for Code.” ",
-    ],
-
-    quote: "❤️  I love good design, gaming, art, netflix, and gadgets.",
-
-    card: [
-      {
-        img: udacity,
-        imgDark: udacityDark,
-        title: "User Experience Nanodegree",
-        content: "The right way to design anything.",
-        linkContent: "View Certificate",
+      footer: {
+        section1: {
+          name: "Sylla Ibrahim",
+          title: "Designer Full Stack Freelance",
+        },
+        section2: {
+          title: "Conçu avec Figma",
+          github: {
+            title: "Hébergé sur Github Pages",
+            link: "https://github.com",
+          },
+        },
       },
-      {
-        img: upwork,
-        imgDark: upworkDark,
-        title: "Available via Upwork",
-        content: "Top rated freelancer on upwork",
-        linkContent: "Hire Me",
-      },
-    ],
-  },
-
-  contact: {
-    title: "📅 Schedule a consult.",
-    content:
-      "I am always open to discuss your project, improve your online presence or help with your UX/UI design challenges. ",
-    email: {
-      title: "📧 Email me at",
-      link: "hi@narendra.design",
-    },
-    network: {
-      title: "Follow",
-      imgs: [tweeter, linkedin, notion],
-    },
-    form: {
-      name: "Your name",
-      email: "Your email",
-      website: "Your website (if exists)",
-      desc: "How can i help ?",
-      submit: "Get in touch",
-    },
-  },
-
-  footer: {
-    section1: {
-      name: "Sylla Ibrahim",
-      title: "Freelance Full Stack Designer",
-    },
-    section2: {
-      title: "Designed using Figma",
-      github: { title: "Hosted on Github Pages", link: "https://github.com" },
     },
   },
 };
 
-export default WebConfig;
+export default GlobaleWebConfig;

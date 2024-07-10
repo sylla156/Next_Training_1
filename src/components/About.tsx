@@ -1,4 +1,5 @@
 import WebConfig from "@/config";
+import { Content } from "@/context/ContentProvider";
 import { theme } from "@/context/ThemeProvider";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +7,8 @@ import React, { useContext } from "react";
 
 const About = () => {
   const themeColor = useContext(theme);
+  const { websiteContent: WebConfig, setWebsiteContent } =
+    React.useContext(Content);
   return (
     <div
       className="mb-32 sm:mb-40"
