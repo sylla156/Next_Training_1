@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
 
-
 export const metadata: Metadata = {
   title: "Landing page",
   description: "My first Portfolio",
@@ -15,8 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body >{children}</body>
-      <Footer/>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

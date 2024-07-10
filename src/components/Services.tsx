@@ -9,7 +9,7 @@ const Services = () => {
   );
 
   return (  
-    <div className="mb-32 sm:mb-40">
+    <div className="mb-32 sm:mb-40" id={WebConfig.routePath.find(item => item.path === '#services')?.name.toLowerCase()}>
       <h2 className="mb-8 sm:mb-16">{WebConfig.services.title}</h2>
 
       <div className="flex flex-col justify-stretch items-center gap-y-8 sm:flex-row sm:justify-start sm:items-stretch w-full sm:h-max">

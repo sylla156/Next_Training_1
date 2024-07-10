@@ -13,7 +13,7 @@ const Home = () => {
   const [toogle,setToggle] = React.useState(true);
 
   return (
-    <div className="mt-2">
+    <div className="mt-2" id={WebConfig.routePath.find(item => item.path === '#home')?.name.toLowerCase()} >
       <Header setToggle={setToggle}/>
       <Presentation />
       <Navbar toggle={toogle} setToggle={setToggle} />
@@ -64,9 +64,9 @@ const Presentation = () => {
           <h1>{title}</h1>
           <p>{content}</p>
         </div>
-        <div className="flex justify-center sm:justify-start sm:items-center gap-x-6 mt-2">
-          <button className="button_primary">{button1.name}</button>
-          <button className="button_secondary">{button2.name}</button>
+        <div className="flex justify-center flex-wrap gap-y-5 sm:gap-y-0 sm:justify-start sm:items-center gap-x-6 mt-2 sm:flex-none">
+          <button className="button_primary w-full xsm:w-auto">{button1.name}</button>
+          <button className="button_secondary w-full xsm:w-auto">{button2.name}</button>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@ const Navbar = ({setToggle,toggle}:{ toggle: boolean; setToggle: React.Dispatch<
 <nav className="h-full w-full ">
   <ul className="h-full w-full flex flex-col justify-center items-center gap-y-3">
     {WebConfig.routePath.map((route, index) => (
-      <li key={route.path} onClick={() => setToggle(true)}>
+     <li key={route.path} onClick={() => setToggle(true)}>
         <Link
           href={route.path}
           className="font-spartan text-secondary text-3xl hover:underline"

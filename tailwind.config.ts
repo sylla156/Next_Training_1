@@ -17,7 +17,9 @@ const config: Config = {
         primary: "#FF6666",
       },
       screens:{
-        'sm':'768px'
+        'xsm':'640px',
+        'sm':'768px',
+        'lg':'1024px'
       }
     },
   },

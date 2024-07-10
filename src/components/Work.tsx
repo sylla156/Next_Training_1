@@ -4,7 +4,7 @@ import React from "react";
 
 const Work = () => {
   return (
-    <div className="mb-32 sm:mb-48">
+    <div className="mb-32 sm:mb-48" id={WebConfig.routePath.find(item => item.path === '#work')?.name.toLowerCase()}>
       <h2 className="mb-8 sm:mb-20">{WebConfig.work.title}</h2>
       <div className="grid grid-cols-2 sm:grid-flow-col-4 justify-start items-center justify-items-start gap-y-10 gap-x-5">
         {WebConfig.work.imgs.map((img, index) => (

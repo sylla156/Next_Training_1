@@ -18,7 +18,7 @@ import tweeter from "../public/icons/tweeter.svg";
 import linkedin from "../public/icons/linkedin.svg";
 import notion from "../public/icons/notion.svg";
 
-type routePath = { path: string; name: string };
+type routePath = { path: string; name: string; hidden?: boolean };
 type servicesPath = {
   img: string | StaticImport;
   title: string;
@@ -32,7 +32,7 @@ type Card = {
   linkContent: string;
 };
 
-interface WEBCONFIG  {
+interface WEBCONFIG {
   routePath: routePath[];
   home: {
     title: string;
@@ -70,24 +70,24 @@ interface WEBCONFIG  {
       [key: string]: string;
     };
   };
-  footer:{
-    section1:{
-      name:string;
-      title:string;
-    },
-    section2:{ 
-    title:string;
-    github:{
-      title:string;
-      link:string
-    }
-  }
-  }
-};
+  footer: {
+    section1: {
+      name: string;
+      title: string;
+    };
+    section2: {
+      title: string;
+      github: {
+        title: string;
+        link: string;
+      };
+    };
+  };
+}
 
 const WebConfig: WEBCONFIG = {
   routePath: [
-    { path: "#services", name: "services" },
+    { path: "#services", name: "services", hidden: false },
     { path: "#work", name: "Work" },
     { path: "#about", name: "About" },
     { path: "#contact", name: "contact" },
@@ -134,7 +134,11 @@ const WebConfig: WEBCONFIG = {
   about: {
     title: "About 👱‍♂️ 💼 Me",
 
-    content: ["I started as a frontend developer in college, and later I co-founded Aroliant Internet Private Limited with a friend. As a director and a developer, I learned a lot about managing a company, team, and projects. ", "And in two years, I found my passion for design. In 2020 for personal reasons, I became a freelancer. Now, I’m selling digital goods on the web and working on freelance projects. I love helping small businesses to create their online presence and help setting up their own online store (e-commerce) to boost their business. ", "My design work ensures that it is developer-friendly as it passes through the lens of my experience as a frontend developer. When I design, I make sure it is 100% implementable by a frontend developer without any difficulties. I call it “Design for Code.” "],
+    content: [
+      "I started as a frontend developer in college, and later I co-founded Aroliant Internet Private Limited with a friend. As a director and a developer, I learned a lot about managing a company, team, and projects. ",
+      "And in two years, I found my passion for design. In 2020 for personal reasons, I became a freelancer. Now, I’m selling digital goods on the web and working on freelance projects. I love helping small businesses to create their online presence and help setting up their own online store (e-commerce) to boost their business. ",
+      "My design work ensures that it is developer-friendly as it passes through the lens of my experience as a frontend developer. When I design, I make sure it is 100% implementable by a frontend developer without any difficulties. I call it “Design for Code.” ",
+    ],
 
     quote: "❤️  I love good design, gaming, art, netflix, and gadgets.",
 
@@ -156,7 +160,8 @@ const WebConfig: WEBCONFIG = {
 
   contact: {
     title: "📅 Schedule a consult.",
-    content: "I am always open to discuss your project, improve your online presence or help with your UX/UI design challenges. ",
+    content:
+      "I am always open to discuss your project, improve your online presence or help with your UX/UI design challenges. ",
     email: {
       title: "📧 Email me at",
       link: "hi@narendra.design",
@@ -175,15 +180,15 @@ const WebConfig: WEBCONFIG = {
   },
 
   footer: {
-    section1:{
-      name:'Sylla Ibrahim',
-      title:'Freelance Full Stack Designer'
+    section1: {
+      name: "Sylla Ibrahim",
+      title: "Freelance Full Stack Designer",
     },
-    section2:{
-      title:'Designed using Figma',
-      github:{title:'Hosted on Github Pages',link:'https://github.com' }
-    }
-  }
+    section2: {
+      title: "Designed using Figma",
+      github: { title: "Hosted on Github Pages", link: "https://github.com" },
+    },
+  },
 };
 
 export default WebConfig;

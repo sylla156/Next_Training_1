@@ -5,7 +5,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="mb-32 sm:mb-40">
+    <div className="mb-32 sm:mb-40" id={WebConfig.routePath.find(item => item.path === '#about')?.name.toLowerCase()}>
       <h2 className="mb-5 sm:mb-16">{WebConfig.about.title}</h2>
 
       <div className="flex flex-row  w-full justify-between">
