@@ -30,7 +30,7 @@ const Services = () => {
         {WebConfig.services.card.map((item) => (
           <div
             key={item.title}
-            className="flex-1 flex flex-col gap-y-7 m-0 p-0 ml-5 justify-between items-start "
+            className="flex-1 flex flex-col gap-y-7 m-0 p-0 ml-1 sm:ml-5 justify-between items-start "
           >
             <Image
               src={item.img}
