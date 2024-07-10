@@ -1,6 +1,13 @@
 import WebConfig from "@/config";
 import Image from "next/image";
 import React from "react";
+import type { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  title: "Landing page",
+  description: "My first Portfolio",
+};
 
 const Services = () => {
   const service = React.useMemo(
@@ -27,7 +34,7 @@ const Services = () => {
             />
             <h4>{item.title}</h4>
             <p>{item.content}</p>
-            <h5 className="align-bottom">{item.subTitle}</h5>
+            <h5 className="align-bottom dark:text-gray-200">{item.subTitle}</h5>
           </div>
         ))}
       </div>

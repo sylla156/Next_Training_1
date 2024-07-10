@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import ThemeProvider, { theme } from "@/context/ThemeProvider";
 
-export const metadata: Metadata = {
-  title: "Landing page",
-  description: "My first Portfolio",
-};
+
 
 export default function RootLayout({
   children,
@@ -13,11 +10,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ThemeProvider>
+      <html lang="en">
+        <body>
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }
+

@@ -31,9 +31,9 @@ const Header = ({setToggle}:{setToggle:React.Dispatch<SetStateAction<boolean>>})
             <li key={route.path}>
               <Link
                 href={route.path}
-                className="font-spartan text-secondary text-3xl"
+                className="font-spartan text-secondary dark:text-primary text-3xl"
               >
-                <span className="text-primary">{index + 1}. </span>
+                <span className="text-primary dark:text-secondary">{index + 1}. </span>
                 <span className="capitalize font-spartan">{route.name}</span>
               </Link>
             </li>

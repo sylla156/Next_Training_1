@@ -14,6 +14,19 @@ import ad from "../public/images/adobe.png";
 import fr from "../public/images/freepik.png";
 import udacity from "../public/icons/udacity.png";
 import upwork from "../public/icons/upwork 1.svg";
+import driDark from "../public/images/dribbleDark.png";
+import devDark from "../public/images/deviantDark.png";
+import artDark from "../public/images/artstationDark.png";
+import skeDark from "../public/images/sketchfabDark.png";
+import cgDark from "../public/images/cgsocietyDark.png";
+import beDark from "../public/images/behanceDark.png";
+import artmDark from "../public/images/antmajeurDark.png";
+import spDark from "../public/images/spreadshirtDark.png";
+import adDark from "../public/images/adobeDark.png";
+import frDark from "../public/images/freepikDark.png";
+import udacityDark from "../public/icons/udacityDark.png";
+import upworkDark from "../public/icons/upworkDark.png";
+
 import tweeter from "../public/icons/tweeter.svg";
 import linkedin from "../public/icons/linkedin.svg";
 import notion from "../public/icons/notion.svg";
@@ -27,6 +40,7 @@ type servicesPath = {
 };
 type Card = {
   img: string | StaticImport;
+  imgDark: string | StaticImport;
   title: string;
   content: string;
   linkContent: string;
@@ -48,6 +62,7 @@ interface WEBCONFIG {
   work: {
     title: string;
     imgs: StaticImport[];
+    darkImgs: StaticImport[];
   };
   about: {
     title: string;
@@ -129,6 +144,18 @@ const WebConfig: WEBCONFIG = {
   work: {
     title: "Where to find 🔍 my work",
     imgs: [dri, dev, art, ske, cg, be, artm, sp, ad, fr],
+    darkImgs: [
+      driDark,
+      devDark,
+      artDark,
+      skeDark,
+      cgDark,
+      beDark,
+      artmDark,
+      spDark,
+      adDark,
+      frDark,
+    ],
   },
 
   about: {
@@ -145,12 +172,14 @@ const WebConfig: WEBCONFIG = {
     card: [
       {
         img: udacity,
+        imgDark: udacityDark,
         title: "User Experience Nanodegree",
         content: "The right way to design anything.",
         linkContent: "View Certificate",
       },
       {
         img: upwork,
+        imgDark: upworkDark,
         title: "Available via Upwork",
         content: "Top rated freelancer on upwork",
         linkContent: "Hire Me",

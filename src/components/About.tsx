@@ -1,11 +1,18 @@
 import WebConfig from "@/config";
+import { theme } from "@/context/ThemeProvider";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 
 const About = () => {
+  const themeColor = useContext(theme);
   return (
-    <div className="mb-32 sm:mb-40" id={WebConfig.routePath.find(item => item.path === '#about')?.name.toLowerCase()}>
+    <div
+      className="mb-32 sm:mb-40"
+      id={WebConfig.routePath
+        .find((item) => item.path === "#about")
+        ?.name.toLowerCase()}
+    >
       <h2 className="mb-5 sm:mb-16">{WebConfig.about.title}</h2>
 
       <div className="flex flex-row  w-full justify-between">
@@ -21,7 +28,7 @@ const About = () => {
           {WebConfig.about.card.map((card) => (
             <div key={card.title}>
               <Image
-                src={card.img}
+                src={themeColor.theme === "light" ? card.img : card.imgDark}
                 alt={card.title}
                 className="w-30 h-auto object-cover mb-5"
               />

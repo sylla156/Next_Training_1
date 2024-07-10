@@ -1,6 +1,10 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ['variant', [
+    '@media (prefers-color-scheme: dark) { &:not(.light *) }',
+    '&:is(.dark *)',
+  ]],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,11 +20,11 @@ const config: Config = {
         secondary: "#336699",
         primary: "#FF6666",
       },
-      screens:{
-        'xsm':'640px',
-        'sm':'768px',
-        'lg':'1024px'
-      }
+      screens: {
+        xsm: "640px",
+        sm: "768px",
+        lg: "1024px",
+      },
     },
   },
   plugins: [],

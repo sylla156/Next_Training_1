@@ -58,11 +58,11 @@ const Contact = () => {
             placeholder={WebConfig.contact.form.name}
             {...register("name")}
           />
-          <input
+          {/* <input
             type="email"
             placeholder={WebConfig.contact.form.email}
             {...register("email")}
-          />
+          /> */}
           <input
             type="url"
             placeholder={WebConfig.contact.form.website}
