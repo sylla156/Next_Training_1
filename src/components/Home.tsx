@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import Image from "next/image";
 import profile from "../../public/images/profile.jpeg";
 import burger from "../../public/icons/burger.svg";
@@ -69,23 +69,58 @@ const Header = ({
 const Presentation = () => {
   const { websiteContent: WebConfig, setWebsiteContent } =
     React.useContext(Content);
+  const ThreeD = useRef<HTMLDivElement>(null);
+  const HeaderTag = useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (ThreeD.current) {
+      const pre = ThreeD.current;
+
+      document.addEventListener("mousemove", (event) => {
+        // get mouse position
+        const x = event.clientX;
+        const y = event.clientY;
+        // console.log(x, y)
+
+        // find the middle
+        const middleX = window.innerWidth / 2;
+        const middleY = window.innerHeight / 2;
+        // console.log(middleX, middleY)
+
+        // get offset from middle as a percentage
+        // and tone it down a little
+        const offsetX = ((x - middleX) / middleX) * 45;
+        const offsetY = ((y - middleY) / middleY) * 45;
+        // console.log(offsetX, offsetY);
+
+        // set rotation
+        pre.style.setProperty("--rotateX", offsetX + "deg");
+        pre.style.setProperty("--rotateY", -1 * offsetY + "deg");
+      });
+    }
+  }, []);
 
   const { title, subTitle, content, button1, button2 } = WebConfig.home;
 
   return (
-    <div className="mt-10 mb-32 flex flex-col justify-between items-center gap-y-16 sm:py-10 sm:my-32 sm:flex-row sm:justify-center sm:gap-x-28 sm:gap-y-0">
-      <Image
-        src={profile}
-        alt="Photo de profile"
-        className="object-contain -rotate-6 border-8 border-gray-300"
-        width={250}
-        height={250}
-      />
+    <div
+      ref={HeaderTag}
+      className="mt-10 mb-32 flex flex-col justify-between items-center gap-y-16 sm:py-10 sm:my-32 sm:flex-row sm:justify-center sm:gap-x-28 sm:gap-y-0"
+    >
+      <div className="pre" ref={ThreeD}>
+        <Image
+          src={profile}
+          alt="Photo de profile"
+          className="object-contain rounded-xl"
+          width={250}
+          height={250}
+        />
+      </div>
       <div className=" flex flex-col text-center sm:text-start gap-y-8">
-        <h3>{subTitle}</h3>
+        <h2>{subTitle}</h2>
         <div>
           <h1>{title}</h1>
-          <p>{content}</p>
+          <p className="subtitle first-letter:capitalize">{content}</p>
         </div>
         <div className="flex justify-center flex-wrap gap-y-5 sm:gap-y-0 sm:justify-start sm:items-center gap-x-6 mt-2 sm:flex-none">
           <button className="button_primary w-full xsm:w-auto">
