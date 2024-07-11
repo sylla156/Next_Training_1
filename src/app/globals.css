@@ -75,14 +75,31 @@
     font-size: 1.2em;
   }
 
-  a {
-    font-size: 1.2em;
+  span {
+    font-size: 1.5em;
+    position: relative;
   }
+
+  span::before {
+    transition: 300ms;
+    height: 2px;
+    content: "";
+    position: absolute;
+    @apply dark:bg-primary bg-secondary;
+    width: 0%;
+    bottom: -1px;
+  }
+
+  span:hover::before {
+    @apply text-red-200;
+    width: 100%;
+  }
+
 
   button {
     @apply font-spartan;
     @apply text-2xl;
-    @apply rounded-sm;
+    @apply rounded-lg;
   }
 
   .button_primary {
@@ -155,6 +172,7 @@
     @apply rounded-xl;
     position: relative;
     transform-style: preserve-3d;
+    padding: 15px;
     transform: perspective(450px) rotateY(var(--rotateX))
       rotateX(var(--rotateY));
   }
@@ -231,7 +249,7 @@
   .subtitle {
     opacity: 0;
     transform: translateY(3rem);
-    animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+    animation: fadeInUp 2s ease 0.4s forwards;
   }
 
   @keyframes typewriter {

@@ -114,17 +114,17 @@ export const languageTable: {
 }[] = [
   {
     language: "fr",
-    name: { en: "French", fr: "Français", es: "Francés" },
+    name: { en: "", fr: "", es: "" },
     logo: "🇫🇷",
   },
   {
     language: "en",
-    name: { en: "English", fr: "Anglais", es: "Inglés" },
+    name: { en: "", fr: "", es: "" },
     logo: "🇺🇸",
   },
   {
     language: "es",
-    name: { en: "Spanish", fr: "Espagnol", es: "Español" },
+    name: { en: "", fr: "", es: "" },
     logo: "🇪🇸",
   },
 ];
@@ -140,7 +140,7 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
         { path: "#contact", name: "contact" },
       ],
       home: {
-        title: "Freelance Full Stack Designer",
+        title: "Freelance Full Stack Developer",
         subTitle: "Hi 👋, I'm Sylla Ibrahim",
         content: "good design makes the world a better place",
         button1: { path: "#work", name: "My Work" },

@@ -162,7 +162,7 @@ const Navbar = ({
             <li key={route.path} onClick={() => setToggle(true)}>
               <Link
                 href={route.path}
-                className="font-spartan text-secondary text-[3em] hover:underline"
+                className="font-spartan text-secondary text-[3em] hover:underline "
               >
                 <span className="text-primary">{index + 1}. </span>
                 <span className="capitalize font-spartan">{route.name}</span>
