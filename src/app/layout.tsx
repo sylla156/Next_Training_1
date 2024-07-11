@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <ThemeProvider>
       <ContentProvider>
-        <html lang="en">
+        <html lang="en" className="dark">
           <body>
             {children}
             <Footer />

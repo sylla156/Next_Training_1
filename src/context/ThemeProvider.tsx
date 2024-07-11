@@ -22,10 +22,14 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   });
 
   React.useEffect(() => {
-    if (themeValue.theme === "light") {
+    if (
+      themeValue.theme === "light"
+    ) {
+      document.documentElement.classList.remove("dark");
       document.documentElement.classList.add("light");
     } else {
       document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
     }
   }, [themeValue]);
 

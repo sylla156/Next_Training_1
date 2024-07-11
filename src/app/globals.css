@@ -5,10 +5,34 @@
 @tailwind utilities;
 
 @layer components {
+  html::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(169, 97, 97, 0.3);
+    @apply bg-slate-900;
+  }
+
+  html::-webkit-scrollbar {
+    width: 3px;
+    @apply bg-primary;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+  }
+
+  html::selection {
+    color: red;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
   body {
     @apply font-hind;
     @apply dark:bg-slate-900;
     @apply dark:text-white;
+    @apply bg-slate-300;
   }
 
   h1,
@@ -86,7 +110,7 @@
   input {
     border: none;
     outline: none;
-    @apply bg-gray-200;
+    @apply bg-slate-200;
     @apply rounded-md;
     @apply w-full;
     @apply h-10;
@@ -103,7 +127,7 @@
   .textarea {
     @apply border-none;
     @apply outline-none;
-    @apply bg-gray-200;
+    @apply bg-slate-200;
     @apply rounded-md;
     @apply w-full;
     @apply h-40; /* Taille pour simuler une area */
@@ -189,7 +213,7 @@
 
   h1::before {
     @apply dark:bg-slate-900;
-    @apply bg-white;
+    @apply bg-slate-300;
 
     animation: typewriter var(--typewriterSpeed)
       steps(var(--typewriterCharacters)) 1s forwards;
@@ -197,7 +221,7 @@
 
   h1::after {
     width: 0.125em;
-    @apply dark:bg-white;
+    @apply dark:bg-slate-300;
     @apply bg-slate-900;
     animation: typewriter var(--typewriterSpeed)
         steps(var(--typewriterCharacters)) 1s forwards,
