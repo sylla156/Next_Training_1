@@ -26,7 +26,7 @@ const Services = () => {
     >
       <h2 className="mb-8 sm:mb-16">{WebConfig.services.title}</h2>
 
-      <div className="flex flex-col justify-stretch items-center gap-y-8 sm:flex-row sm:justify-start sm:items-stretch w-full sm:h-max">
+      <div className="flex flex-col justify-stretch items-center gap-y-8 sm:flex-row sm:justify-start sm:items-baseline w-full sm:h-max">
         {WebConfig.services.card.map((item) => (
           <div
             key={item.title}
@@ -41,7 +41,7 @@ const Services = () => {
             />
             <h4>{item.title}</h4>
             <p>{item.content}</p>
-            <h5 className="align-bottom dark:text-gray-200">{item.subTitle}</h5>
+            <h5 className="align-bottom dark:text-gray-200 ">{item.subTitle}</h5>
           </div>
         ))}
       </div>

@@ -27,7 +27,7 @@ const About = () => {
           ))}
         </div>
 
-        <div className="w-[35%] flex flex-col justify-start items-center gap-16">
+        <div className="w-[35%] flex flex-col justify-start items-end sm:items-center gap-16">
           {WebConfig.about.card.map((card) => (
             <div key={card.title}>
               <Image

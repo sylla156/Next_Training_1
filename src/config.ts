@@ -26,6 +26,7 @@ import adDark from "../public/images/adobeDark.png";
 import frDark from "../public/images/freepikDark.png";
 import udacityDark from "../public/icons/udacityDark.png";
 import upworkDark from "../public/icons/upworkDark.png";
+import dashboardImg from '../public/images/dashboard.png';
 
 import tweeter from "../public/icons/tweeter.svg";
 import linkedin from "../public/icons/linkedin.svg";
@@ -63,8 +64,14 @@ export interface WEBCONFIG {
   };
   work: {
     title: string;
-    imgs: StaticImport[];
-    darkImgs: StaticImport[];
+    subTitle: string;
+    content:string;
+    projects: {
+      title: string;
+      content: string;
+      img: string | StaticImport;
+      tags: string[];
+    }[];
   };
   about: {
     title: string;
@@ -147,45 +154,78 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
         button2: { path: "#contact", name: "Let's talk" },
       },
       services: {
-        title: "What I do",
+        title: "What I Do",
         card: [
           {
             img: mobile,
-            title: "Mobile & Web Design",
+            title: "Front-End Development",
             content:
-              "Need a website or mobile app? I can create beautiful websites or mobile apps based on your content, or redesign your old website to improve user engagement or achieve your business goals.",
-            subTitle: "Get an estimate",
+              "Specializing in creating responsive and engaging user interfaces. Transforming designs into seamless front-end experiences that enhance user interaction.",
+            subTitle: "UI Development",
           },
           {
             img: graphic,
-            title: "Graphic Design",
+            title: "Back-End Development",
             content:
-              "Need art for your project? I can create beautiful art, designs based on your project requirements such as business cards, digital banners, icons, logos, hand-drawn characters, abstracts, textures, etc.",
-            subTitle: "Get an estimate",
+              "Expertise in developing scalable APIs and robust server-side applications. Ensuring secure and efficient functionality to support seamless application operations.",
+            subTitle: "API Development",
           },
           {
             img: frontend,
-            title: "Frontend Development",
+            title: "Full-Stack Development",
             content:
-              "Already have the design? I can create static websites such as landing pages, company sites, and custom websites with minimal JavaScript. Will deliver a well-documented code.",
-            subTitle: "Get an estimate",
+              "Combining front-end and back-end technologies to deliver comprehensive web solutions. From UI design to server-side architecture, ensuring cohesive and efficient applications that meet business needs.",
+            subTitle: "Full-Stack Solutions",
           },
         ],
       },
       work: {
-        title: "Where to find 🔍 my work",
-        imgs: [dri, dev, art, ske, cg, be, artm, sp, ad, fr],
-        darkImgs: [
-          driDark,
-          devDark,
-          artDark,
-          skeDark,
-          cgDark,
-          beDark,
-          artmDark,
-          spDark,
-          adDark,
-          frDark,
+        title: "A Showcase of My Work and Accomplishments",
+        subTitle: "My work",
+        content:"Following projects showcases my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos in it. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.",
+        projects: [
+          {
+            title: "Projec title",
+            img: dashboardImg,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dashboardImg,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dashboardImg,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dashboardImg,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dashboardImg,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dashboardImg,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
         ],
       },
       about: {
@@ -288,19 +328,31 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
         ],
       },
       work: {
-        title: "Dónde encontrar 🔍 mi trabajo",
-        imgs: [dri, dev, art, ske, cg, be, artm, sp, ad, fr],
-        darkImgs: [
-          driDark,
-          devDark,
-          artDark,
-          skeDark,
-          cgDark,
-          beDark,
-          artmDark,
-          spDark,
-          adDark,
-          frDark,
+        title: "Project",
+        subTitle: "My work",
+        content:'Following projects showcases my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos in it. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.',
+        projects: [
+          {
+            title: "Projec title",
+            img: dri,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dri,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dri,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
         ],
       },
       about: {
@@ -404,19 +456,31 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
         ],
       },
       work: {
-        title: "Où trouver 🔍 mon travail",
-        imgs: [dri, dev, art, ske, cg, be, artm, sp, ad, fr],
-        darkImgs: [
-          driDark,
-          devDark,
-          artDark,
-          skeDark,
-          cgDark,
-          beDark,
-          artmDark,
-          spDark,
-          adDark,
-          frDark,
+        title: "My Projects",
+        subTitle: "My work",
+        content:'Following projects showcases my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos in it. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.',
+        projects: [
+          {
+            title: "Projec title",
+            img: dri,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dri,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
+          {
+            title: "Projec title",
+            img: dri,
+            content:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+            tags: ["#nextjs", "#tallwincss"],
+          },
         ],
       },
       about: {

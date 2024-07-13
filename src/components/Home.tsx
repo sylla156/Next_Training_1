@@ -35,21 +35,27 @@ const Header = ({
 }) => {
   const { websiteContent: WebConfig } = React.useContext(Content);
   const { theme: themeColor } = useContext(theme);
+
   return (
     <header className="flex justify-between items-center">
       <Logo />
       <nav className="hidden sm:block">
         <ul className="flex justify-between gap-x-5">
           {WebConfig.routePath.map((route, index) => (
-            <li key={route.path}>
+            <li
+              key={route.path}
+             
+            >
               <Link
                 href={route.path}
                 className="font-spartan text-secondary dark:text-primary text-3xl"
               >
-                <span className="text-primary dark:text-secondary">
-                  {index + 1}.{" "}
-                </span>
-                <span className="capitalize font-spartan">{route.name}</span>
+                <div className="title_link">
+                  <span className="text-primary dark:text-secondary">
+                    {index + 1}.{" "}
+                  </span>
+                  <span className="capitalize font-spartan ">{route.name}</span>
+                </div>
               </Link>
             </li>
           ))}
@@ -116,7 +122,7 @@ const Presentation = () => {
           height={250}
         />
       </div>
-      <div className=" flex flex-col text-center sm:text-start gap-y-8">
+      <div className=" flex flex-col text-center sm:text-start gap-y-8 presentation_content">
         <h2>{subTitle}</h2>
         <div>
           <h1>{title}</h1>
@@ -165,7 +171,9 @@ const Navbar = ({
                 className="font-spartan text-secondary text-[3em] hover:underline "
               >
                 <span className="text-primary">{index + 1}. </span>
-                <span className="capitalize font-spartan">{route.name}</span>
+                <span className="title_link capitalize font-spartan">
+                  {route.name}
+                </span>
               </Link>
             </li>
           ))}
