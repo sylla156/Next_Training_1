@@ -19,7 +19,6 @@ export async function POST(request: Request) {
     url: z.string().url(),
     desc: z.string().optional(),
   });
-  console.log(body, formSchema.parse(body));
 
   if (formSchema.parse(body)) {
     const info = await transporter.sendMail({

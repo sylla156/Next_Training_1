@@ -37,7 +37,6 @@ const Contact = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res,res.status,res.status === true)
         if (res.status === true) setAlertSucess(true);
         else setAlertError(true);
       })
