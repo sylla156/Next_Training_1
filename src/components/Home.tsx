@@ -123,7 +123,6 @@ const Presentation = () => {
         <h2>{subTitle}</h2>
         <div>
           <h1>
-            <span className="invisible">i</span>
             {title}
             <span className="invisible">ii</span>
           </h1>

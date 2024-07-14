@@ -2,7 +2,6 @@ import mobile from "../public/icons/mobile_web.png";
 import graphic from "../public/icons/Graphic.png";
 import frontend from "../public/icons/frontend.png";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import dashboardImg from "../public/images/dashboard.png";
 
 import codingGameLogo from "../public/images/codingGameLogo.jpeg";
 import hub2Logo from "../public/images/hub2Logo.jpeg";

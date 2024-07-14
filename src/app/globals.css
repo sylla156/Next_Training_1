@@ -149,7 +149,7 @@
   input {
     border: none;
     outline: none;
-    @apply bg-slate-200;
+    @apply bg-slate-200 dark:bg-slate-700;
     @apply rounded-md;
     @apply w-full;
     @apply h-10;
@@ -166,7 +166,8 @@
   .textarea {
     @apply border-none;
     @apply outline-none;
-    @apply bg-slate-200;
+    @apply bg-slate-200 dark:bg-slate-700;
+
     @apply rounded-md;
     @apply w-full;
     @apply h-40; /* Taille pour simuler une area */
