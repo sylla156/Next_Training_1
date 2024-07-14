@@ -42,10 +42,7 @@ const Header = ({
       <nav className="hidden sm:block">
         <ul className="flex justify-between gap-x-5">
           {WebConfig.routePath.map((route, index) => (
-            <li
-              key={route.path}
-             
-            >
+            <li key={route.path}>
               <Link
                 href={route.path}
                 className="font-spartan text-secondary dark:text-primary text-3xl"
@@ -125,16 +122,25 @@ const Presentation = () => {
       <div className=" flex flex-col text-center sm:text-start gap-y-8 presentation_content">
         <h2>{subTitle}</h2>
         <div>
-          <h1>{title}</h1>
+          <h1>
+            <span className="invisible">i</span>
+            {title}
+            <span className="invisible">ii</span>
+          </h1>
           <p className="subtitle first-letter:capitalize">{content}</p>
         </div>
         <div className="flex justify-center flex-wrap gap-y-5 sm:gap-y-0 sm:justify-start sm:items-center gap-x-6 mt-2 sm:flex-none">
-          <button className="button_primary w-full xsm:w-auto">
-            {button1.name}
-          </button>
-          <button className="button_secondary w-full xsm:w-auto">
-            {button2.name}
-          </button>
+          <Link href={button1.path}>
+            {" "}
+            <button className="button_primary w-full xsm:w-auto">
+              {button1.name}
+            </button>
+          </Link>
+          <Link href={button2.path}>
+            <button className="button_secondary w-full xsm:w-auto">
+              {button2.name}
+            </button>
+          </Link>
         </div>
       </div>
     </div>

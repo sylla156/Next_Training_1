@@ -23,11 +23,9 @@
 .card {
   position: relative;
   transform-style: preserve-3d;
-  transition: all .2s;
-  transform: perspective(450px) rotateY(var(--rotateX))
-    rotateX(var(--rotateY));
+  transition: all 0.2s;
+  transform: perspective(450px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
 }
-
 
 @layer components {
   html::-webkit-scrollbar-track {
@@ -57,7 +55,7 @@
     @apply font-hind;
     @apply dark:bg-slate-900;
     @apply dark:text-white;
-    @apply bg-slate-300;
+    @apply bg-pink-50;
   }
 
   h1,

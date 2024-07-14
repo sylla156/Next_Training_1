@@ -4,6 +4,7 @@ import WebConfig from "@/config";
 import { Content } from "@/context/ContentProvider";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -38,20 +39,25 @@ const Contact = () => {
         <p className="mb-18">{WebConfig.contact.content}</p>
         <section className="hidden sm:block">
           <p className="text-gray-500 mt-6">{WebConfig.contact.email.title}</p>
-          <p className="text-gray-800 mb-10">{WebConfig.contact.email.link}</p>
+          <Link href={`mailto:${WebConfig.contact.email.link}`}>
+            <p className="text-gray-800 mb-10 tag_1 presentation_content">
+              {WebConfig.contact.email.link}
+            </p>
+          </Link>
         </section>
         <section className="hidden sm:block">
           <p className="text-gray-900 mb-2">
             {WebConfig.contact.network.title}
           </p>
           <section className="flex gap-x-5">
-            {WebConfig.contact.network.imgs.map((img, index) => (
-              <Image
-                key={index}
-                src={img}
-                alt={"Network" + (index + 1)}
-                className="w-8 h-auto object-contain"
-              />
+            {WebConfig.contact.network.imgs.map(({ img, link }) => (
+              <Link href={link} key={link}>
+                <Image
+                  src={img}
+                  alt={link}
+                  className="w-8 h-auto object-contain"
+                />
+              </Link>
             ))}
           </section>
         </section>
@@ -99,13 +105,14 @@ const Contact = () => {
               {WebConfig.contact.network.title}
             </p>
             <section className="flex gap-x-5">
-              {WebConfig.contact.network.imgs.map((img, index) => (
-                <Image
-                  key={index}
-                  src={img}
-                  alt={"Network" + (index + 1)}
-                  className="w-8 h-auto object-contain"
-                />
+              {WebConfig.contact.network.imgs.map(({ img, link }) => (
+                <Link href={link} key={link}>
+                  <Image
+                    src={img}
+                    alt={link}
+                    className="w-8 h-auto object-contain"
+                  />
+                </Link>
               ))}
             </section>
           </section>

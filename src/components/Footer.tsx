@@ -11,7 +11,7 @@ const Footer = () => {
   const { websiteContent: WebConfig, setWebsiteContent } =
     React.useContext(Content);
   return (
-    <footer className="w-full bg-slate-200 dark:bg-slate-800 ">
+    <footer className="w-full bg-pink-50 dark:bg-slate-800 ">
       <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] 2xl:w-[70vw] items-end mx-auto flex justify-between sm:items-center pt-10 pb-5 ">
         <div className="flex flex-col justify-start items-start sm:flex-row sm:gap-x-5 sm:justify-center sm:items-center">
           <Logo />
@@ -20,7 +20,9 @@ const Footer = () => {
               <p className="footerText">{WebConfig.footer.section1.name}</p>
             </li>
             <li>
-              <p className="footerText">{WebConfig.footer.section1.title}</p>
+              <p className="footerText">
+                <span className="tag_3 presentation_content">{WebConfig.footer.section1.title}</span>
+              </p>
             </li>
           </ul>
         </div>
@@ -39,10 +41,10 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] 2xl:w-[70vw] mx-auto flex justify-between items-baseline pb-10">
+      {/* <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] 2xl:w-[70vw] mx-auto flex justify-between items-baseline pb-10">
         <ToggleLanguage />
         <ToggleButton />
-      </div>
+      </div> */}
     </footer>
   );
 };
@@ -74,8 +76,12 @@ const ToggleLanguage = () => {
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
         {languageTable.map((item) => (
-          <option key={item.language} value={item.language} className="text-center">
-            {item.logo} 
+          <option
+            key={item.language}
+            value={item.language}
+            className="text-center"
+          >
+            {item.logo}
             {item.name[currentLanguage]}
           </option>
         ))}
@@ -108,7 +114,7 @@ const ToggleButton = () => {
           checked={themeColor.theme === "dark"}
         />
         <label className="hidden" htmlFor="switch"></label>
-        <div className="peer h-6 w-11 rounded-full border bg-slate-200 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-slate-800 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"></div>
+        <div className="peer h-6 w-11 rounded-full border bg-pink-50 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-slate-800 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"></div>
       </label>
     </button>
   );

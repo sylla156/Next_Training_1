@@ -1,4 +1,3 @@
-import WebConfig from "@/config";
 import { Content } from "@/context/ContentProvider";
 import { theme } from "@/context/ThemeProvider";
 import Image from "next/image";
@@ -21,25 +20,39 @@ const About = () => {
       <div className="flex flex-row  w-full justify-between">
         <div className="w-[60%] flex flex-col ">
           {WebConfig.about.content.map((content) => (
-            <p key={content} className="my-5">
+            <p key={content} className="mb-5">
               {content}
             </p>
           ))}
         </div>
 
-        <div className="w-[35%] flex flex-col justify-start items-end sm:items-center gap-16">
+        <div className="w-[35%] flex flex-col justify-start items-end sm:items-start gap-10">
           {WebConfig.about.card.map((card) => (
             <div key={card.title}>
               <Image
                 src={themeColor.theme === "light" ? card.img : card.imgDark}
                 alt={card.title}
-                className="w-30 h-auto object-cover mb-5"
+                className="w-[50px] h-auto object-cover mb-5"
               />
-              <h5>{card.title}</h5>
-              <p className="mb-5">{card.content}</p>
-              <Link href={"https://google.com"} className="text-primary">
-                {card.linkContent}
-              </Link>
+              <h5 className="capitalize">{card.title}</h5>
+              <p className="mb-2">{card.content}</p>
+              {typeof card.link === "string" ? (
+                <Link href={card.link} className="text-primary">
+                  <span>{card.linkContent}</span>
+                </Link>
+              ) : (
+                card.link.map((item, index) => (
+                  <Link
+                    key={item}
+                    href={item}
+                    className="text-primary block capitalize"
+                  >
+                    <span>
+                      {card.linkContent} {["javascript", "typescript"][index]}
+                    </span>
+                  </Link>
+                ))
+              )}
             </div>
           ))}
         </div>

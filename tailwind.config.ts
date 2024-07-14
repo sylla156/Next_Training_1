@@ -17,7 +17,7 @@ const config: Config = {
     },
     extend: {
       colors: {
-        secondary: "#336699",
+        secondary: "#git",
         primary: "#FF6666",
       },
       screens: {
