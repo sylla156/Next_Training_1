@@ -61,20 +61,21 @@ const Contact = () => {
         ?.name.toLowerCase()}
     >
       <div
-        className={`fixed top-5 right-5 transition-all translate-x-[${
-          alertSucces ? "0" : "100vw"
-        }] font-regular mb-4 block rounded-lg bg-green-500 p-4 text-base leading-5 text-white opacity-100`}
+        className={`fixed top-5 right-5 transition-all ${
+          alertSucces ? "show" : "hide"
+        } font-regular mb-4 block rounded-lg bg-green-500 p-4 text-base leading-5 text-white opacity-100`}
       >
-        A success alert for showing message.
+        📬 Ooooh, c'est une nouvelle lettre dans ma boîte, Merci !
       </div>
       <div
-        className={`font-regular fixed top-5 right-5 transition-all translate-x-[${
-          alertError ? "0" : "100vw"
-        }] mb-4 block rounded-lg bg-red-500 p-4 text-base leading-5 text-white opacity-100`}
+        className={`font-regular fixed top-5 right-5 transition-all ${
+          alertError ? "show" : "hide"
+        } mb-4 block rounded-lg bg-red-500 p-4 text-base leading-5 text-white opacity-100`}
       >
-        An error alert for showing message.
+        😱 Oops, mon code a décidé de prendre des vacances ! Réessaie après un
+        petit rafraîchissement !
       </div>
-      <section className="flex flex-col justify-start items-start w-full sm:max-w-[40%]">
+      <div className="flex flex-col justify-start items-start w-full sm:max-w-[40%]">
         <h2 className="mb-8">{WebConfig.contact.title}</h2>
         <p className="mb-18">{WebConfig.contact.content}</p>
         <section className="hidden sm:block">
@@ -101,7 +102,7 @@ const Contact = () => {
             ))}
           </section>
         </section>
-      </section>
+      </div>
       <div className="w-full sm-w-[40%] h-full flex flex-col mt-10 sm:mt-0">
         <form
           onSubmit={handleSubmit(onSubmit)}

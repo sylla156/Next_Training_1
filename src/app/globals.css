@@ -27,6 +27,14 @@
   transform: perspective(450px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
 }
 
+.show{
+  transform: translateX(0vw);
+}
+
+.hide{
+  transform: translateX(100vw)
+}
+
 @layer components {
   html::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(169, 97, 97, 0.3);

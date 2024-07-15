@@ -21,18 +21,18 @@ export async function POST(request: Request) {
   });
 
   if (formSchema.parse(body)) {
-    const info = await transporter.sendMail({
-      from: `Portfolio User <${process.env.BREVO_SENDER}>`, // sender address
-      to: process.env.BREVO_RECEIVER, // list of receivers
-      subject: "Portfolio Email (Opportunites)", // Subject line
-      text: "Hello better", // mlain text body
-      html: `<div>
-      <h2> name: ${body.name} </h2> <br/>
-      <h2> email: ${body.name}</h2> <br/>
-      <h2> url: ${body.url} </h2> <br/>
-      <h2> desc:</h2> <p>${body.desc}</p><br/>
-      </div>`, // html body
-    });
+    // const info = await transporter.sendMail({
+    //   from: `Portfolio User <${process.env.BREVO_SENDER}>`, // sender address
+    //   to: process.env.BREVO_RECEIVER, // list of receivers
+    //   subject: "Portfolio Email (Opportunites)", // Subject line
+    //   text: "Hello better", // mlain text body
+    //   html: `<div>
+    //   <h2> name: ${body.name} </h2> <br/>
+    //   <h2> email: ${body.name}</h2> <br/>
+    //   <h2> url: ${body.url} </h2> <br/>
+    //   <h2> desc:</h2> <p>${body.desc}</p><br/>
+    //   </div>`, // html body
+    // });
 
     return Response.json({
       status: true,
