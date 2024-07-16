@@ -1,4 +1,5 @@
 "use client";
+export const runtime = 'edge' 
 
 import About from "@/components/About";
 import Contact from "@/components/Contact";
