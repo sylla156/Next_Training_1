@@ -65,15 +65,15 @@ const Contact = () => {
           alertSucces ? "show" : "hide"
         } font-regular mb-4 block rounded-lg bg-green-500 p-4 text-base leading-5 text-white opacity-100`}
       >
-        📬 Ooooh, c'est une nouvelle lettre dans ma boîte, Merci !
+        {`📬 Ooooh, c'est une nouvelle lettre dans ma boîte, Merci !`}
       </div>
       <div
         className={`font-regular fixed top-5 right-5 transition-all ${
           alertError ? "show" : "hide"
         } mb-4 block rounded-lg bg-red-500 p-4 text-base leading-5 text-white opacity-100`}
       >
-        😱 Oops, mon code a décidé de prendre des vacances ! Réessaie après un
-        petit rafraîchissement !
+        {`😱 Oops, mon code a décidé de prendre des vacances ! Réessaie après un
+        petit rafraîchissement ! `}
       </div>
       <div className="flex flex-col justify-start items-start w-full sm:max-w-[40%]">
         <h2 className="mb-8">{WebConfig.contact.title}</h2>
