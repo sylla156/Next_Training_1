@@ -1,4 +1,3 @@
-export const runtime = 'edge' 
 import "./globals.css";
 import Footer from "@/components/Footer";
 import ContentProvider from "@/context/ContentProvider";
