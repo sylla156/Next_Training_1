@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ContentProvider from "@/context/ContentProvider";
 import ThemeProvider from "@/context/ThemeProvider";
 import React from "react";
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({
   children,
@@ -18,6 +19,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </body>
+          <Analytics />
         </html>
       </ContentProvider>
     </ThemeProvider>
