@@ -1,3 +1,4 @@
+
 import "./globals.css";
 import Footer from "@/components/Footer";
 import ContentProvider from "@/context/ContentProvider";
