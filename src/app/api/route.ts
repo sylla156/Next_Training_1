@@ -1,5 +1,5 @@
 import { z } from "zod";
-// import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';
 
 // const transporter = nodemailer.createTransport({
 //   host: process.env.BREVO_HOST,
