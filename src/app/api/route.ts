@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     desc: z.string().optional(),
   });
 
-  console.log(body,formSchema,{
+  console.log(body,{
     host: process.env.BREVO_HOST,
     port: Number(process.env.BREVO_PORT),
     secure: false, // Use `true` for port 465, `false` for all other ports
@@ -29,7 +29,10 @@ export async function POST(request: Request) {
       pass: process.env.BREVO_PASS,
     },
   })
-  return Response.json('Hello Test');
+   return Response.json({
+      status: true,
+      content: "Nice to meet you",
+    })
 
   // if (formSchema.parse(body)) {
   //   const info = await transporter.sendMail({
