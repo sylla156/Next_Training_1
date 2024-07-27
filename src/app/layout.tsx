@@ -1,11 +1,17 @@
-
 import "./globals.css";
 import Footer from "@/components/Footer";
 import ContentProvider from "@/context/ContentProvider";
 import ThemeProvider from "@/context/ThemeProvider";
 import React from "react";
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sylla Ibrahim",
+  description:
+    "Hi 👋, I'm Sylla Ibrahim, a full-stack developer specializing in creating responsive and engaging user interfaces. I transform designs into seamless front-end experiences that enhance user interaction.",
+};
 
 export default function RootLayout({
   children,
