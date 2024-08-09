@@ -32,7 +32,7 @@ const Footer = () => {
               <p className="footerText">{WebConfig.footer.section2.title}</p>
             </li>
             <li>
-              <Link href={WebConfig.footer.section2.github.link}>
+              <Link href={WebConfig.footer.section2.github.link} target="_blank">
                 <p className="footerText underline">
                   {WebConfig.footer.section2.github.title}
                 </p>

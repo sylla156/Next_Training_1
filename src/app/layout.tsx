@@ -98,7 +98,7 @@ const MyComponent: React.FC = () => {
     window.addEventListener("touchstart", mousedown);
     window.addEventListener("touchmove", (e) => {
       if (clicked) {
-        endY = e.touches && e.touches[0].clientY;
+        endY = e.touches && e.touches[0]?.clientY;
       }
     });
     window.addEventListener("touchend", mouseup);

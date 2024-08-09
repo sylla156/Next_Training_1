@@ -17,6 +17,7 @@ import coollionfinanceap from "../public/images/coollionfinanceapp.png";
 import fasto from "../public/images/fasto.png";
 import fastoapp from "../public/images/fastoapp.png";
 import kori from "../public/images/koriinvest.png";
+import adinkra from "../public/images/adinkra.png";
 
 type routePath = { path: string; name: string; hidden?: boolean };
 type servicesPath = {
@@ -175,6 +176,15 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
           "Following projects showcases my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos in it. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.",
         projects: [
           {
+            title: "Adinkra Institute",
+            img: adinkra,
+            content:
+              "The Adinkra Distinguished Black Achievers Honors is a prestigious recognition program under the Adinkra Alliance Institute, dedicated to honoring individuals who have demonstrated exceptional leadership and impact in their communities.",
+            tags: ["#Reactjs", "#MUI", "#Typescript", "#Mapbox"],
+            link: "https://www.adinkrainstitute.com/",
+            github: "https://github.com/sylla156/Adinkra_Institute.git",
+          },
+          {
             title: "Invest Kori",
             img: kori,
             content:
@@ -287,9 +297,15 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
           title: "Follow",
           imgs: [
             { img: linkedin, link: "https://www.linkedin.com/in/brahimcode" },
-            { img: upwork, link: "https://www.upwork.com/freelancers/~0140cffc59ed461e0d" },
+            {
+              img: upwork,
+              link: "https://www.upwork.com/freelancers/~0140cffc59ed461e0d",
+            },
             { img: githubLogo, link: "https://github.com/sylla156" },
-            { img: codingGameLogo, link: "https://www.codingame.com/profile/c8c5191e5f8cb032d0340a49031a96659295806" },
+            {
+              img: codingGameLogo,
+              link: "https://www.codingame.com/profile/c8c5191e5f8cb032d0340a49031a96659295806",
+            },
           ],
         },
         form: {

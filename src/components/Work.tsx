@@ -64,13 +64,13 @@ const Project = () => {
 
           // get offset from middle as a percentage
           // and tone it down a little
-          const offsetX = ((x - middleX) / middleX) * 15;
-          const offsetY = ((y - middleY) / middleY) * 15;
+          const offsetX = ((x - middleX) / middleX) * 5;
+          const offsetY = ((y - middleY) / middleY) * 5;
           // console.log(offsetX, offsetY);
 
           // set rotation
-          card.style.setProperty("--rotateX", offsetX + "deg");
-          card.style.setProperty("--rotateY", -1 * offsetY + "deg");
+          card.style.setProperty("--rotateX", -1 * offsetX + "deg");
+          card.style.setProperty("--rotateY", offsetY + "deg");
         });
         card.addEventListener("mouseout", () => {
           // get mouse position
@@ -93,16 +93,18 @@ const Project = () => {
         return (
           <div
             key={project.title}
-            className={`card_${index}  m-1 card min-w-[200px] max-w-[300px] relative bg-clip-padding border-[solid] border-[3px] border-[transparent] rounded-md before:content-[''] before:absolute before:top-[0] before:right-[0] before:bottom-[0] before:left-[0] before:-m-[3px] before:[border-radius:inherit] before:bg-[linear-gradient(to_left,_#FF6666,_#336699)] before:z-[-1]`}
+            className={`card_${index}  m-1 card min-w-[200px] max-w-[300px] relative bg-clip-padding border-[solid] border-[3px] rounded-md before:content-[''] before:absolute before:top-[0] before:right-[0] before:bottom-[0] before:left-[0] before:-m-[3px] before:[border-radius:inherit] before:bg-[linear-gradient(to_left,_#FF6666,_#336699)] before:z-[-1]`}
           >
             <div
               className={`dark:bg-slate-900 bg-pink-50 dark:text-white p-5 h-full flex flex-col justify-between items-start`}
             >
-              <Image
-                src={project.img}
-                className="block w-full rounded-sm"
-                alt={project.title}
-              />
+              <Link href={project.link} target="_blank">
+                <Image
+                  src={project.img}
+                  className="block w-full rounded-sm cursor-pointer"
+                  alt={project.title}
+                />
+              </Link>
 
               <h3 className="font-semibold">{project.title}</h3>
 
@@ -120,7 +122,7 @@ const Project = () => {
               </div>
 
               <div className="flex justify-end w-full items-center mt-5">
-                <Link href={project.github}>
+                <Link href={project.github} target="_blank">
                   <svg
                     width="25px"
                     height="25px"
@@ -170,30 +172,7 @@ const Project = () => {
                     </g>
                   </svg>
                 </Link>
-                <Link href={project.link}>
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    width="30px"
-                    height="30px"
-                  >
-                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></g>
-                    <g id="SVGRepo_iconCarrier">
-                      {" "}
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M5.63605 5.63605C7.19815 4.07395 9.73081 4.07395 11.2929 5.63605L14.1213 8.46448C15.6834 10.0266 15.6834 12.5592 14.1213 14.1213C13.7308 14.5119 13.0976 14.5119 12.7071 14.1213C12.3166 13.7308 12.3166 13.0976 12.7071 12.7071C13.4882 11.9261 13.4882 10.6597 12.7071 9.87869L9.87869 7.05026C9.09764 6.26922 7.83131 6.26922 7.05026 7.05026C6.26922 7.83131 6.26922 9.09764 7.05026 9.87869L7.75737 10.5858C8.1479 10.9763 8.14789 11.6095 7.75737 12C7.36685 12.3905 6.73368 12.3905 6.34316 12L5.63605 11.2929C4.07395 9.73081 4.07395 7.19815 5.63605 5.63605ZM11.2929 9.8787C11.6834 10.2692 11.6834 10.9024 11.2929 11.2929C10.5119 12.074 10.5119 13.3403 11.2929 14.1213L14.1213 16.9498C14.9024 17.7308 16.1687 17.7308 16.9498 16.9498C17.7308 16.1687 17.7308 14.9024 16.9498 14.1213L16.2427 13.4142C15.8521 13.0237 15.8521 12.3905 16.2427 12C16.6332 11.6095 17.2663 11.6095 17.6569 12L18.364 12.7071C19.9261 14.2692 19.9261 16.8019 18.364 18.364C16.8019 19.9261 14.2692 19.9261 12.7071 18.364L9.8787 15.5356C8.3166 13.9735 8.3166 11.4408 9.8787 9.8787C10.2692 9.48817 10.9024 9.48817 11.2929 9.8787Z"
-                        fill="#336699"
-                      ></path>{" "}
-                    </g>
-                  </svg>
-                </Link>
+              
               </div>
             </div>
           </div>

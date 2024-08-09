@@ -174,7 +174,7 @@ const Contact = () => {
             </p>
             <section className="flex gap-x-5">
               {WebConfig.contact.network.imgs.map(({ img, link }) => (
-                <Link href={link} key={link}>
+                <Link href={link} key={link} target="_blank">
                   <Image
                     src={img}
                     alt={link}
