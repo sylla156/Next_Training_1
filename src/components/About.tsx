@@ -1,3 +1,5 @@
+"use client";
+
 import { Content } from "@/context/ContentProvider";
 import { theme } from "@/context/ThemeProvider";
 import Image from "next/image";

@@ -4,6 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.emoji-container {
+  display: inline-block;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.emoji {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.emoji-container:hover .emoji {
+  transform: scale(1.2); /* Augmente la taille de l'emoji */
+  filter: drop-shadow(0px 0px 10px #000); /* Ajoute une ombre pour plus de visibilité */
+}
+
+/* Optionnel : Modifier la couleur des emojis au survol */
+.emoji:hover .c {
+  fill: #ff0000; /* Change la couleur des emojis lorsque la souris est dessus */
+}
+
 .tag_0 {
   @apply dark:text-blue-500 text-blue-700;
 }
@@ -39,6 +61,7 @@
   html::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(169, 97, 97, 0.3);
     @apply bg-slate-900;
+    transition: all 0.2s;
   }
 
   html::-webkit-scrollbar {

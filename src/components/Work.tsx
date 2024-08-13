@@ -1,3 +1,5 @@
+"use client";
+
 import WebConfig from "@/config";
 import { Content } from "@/context/ContentProvider";
 import { theme } from "@/context/ThemeProvider";

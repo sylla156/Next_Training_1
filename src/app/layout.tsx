@@ -1,5 +1,4 @@
 import "./globals.css";
-import Footer from "@/components/Footer";
 import ContentProvider from "@/context/ContentProvider";
 import ThemeProvider from "@/context/ThemeProvider";
 import React from "react";
@@ -24,7 +23,6 @@ export default function RootLayout({
         <html lang="en" className="dark">
           <body>
             {children}
-            <Footer />
           </body>
           <Analytics />
           <SpeedInsights />

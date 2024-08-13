@@ -48,7 +48,7 @@ const Header = ({
                 className="font-spartan text-secondary dark:text-primary text-3xl"
               >
                 <div className="title_link">
-                  <span className="text-primary dark:text-secondary">
+                  <span className="text-primary dark:text-secondary z-0">
                     {index + 1}.{" "}
                   </span>
                   <span className="capitalize font-spartan ">{route.name}</span>
