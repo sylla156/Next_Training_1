@@ -9,6 +9,7 @@ const Feedback = () => {
   const [feedback, setFeedback] = useState(0);
   const [animationClass, setAnimationClass] = useState("");
   const [loading, setLoading] = React.useState(false);
+  const [count, setCount] = React.useState(0);
 
   const handleFeedbackSubmit = () => {
     if (feedback === 0) {
@@ -18,7 +19,7 @@ const Feedback = () => {
     } else {
       setOpen(false);
       onSubmit();
-      setFeedback(0)
+      setFeedback(0);
     }
   };
 
@@ -37,9 +38,11 @@ const Feedback = () => {
 
   useEffect(() => {
     const handleMouseLeave = (event: MouseEvent) => {
-      if (!window.localStorage.getItem("rate")) {
+      if (!window.localStorage.getItem("rate") && count > 3) {
         setOpen(true);
       }
+      setCount((state) => state + 1);
+
     };
 
     document.addEventListener("mouseleave", handleMouseLeave);
@@ -47,6 +50,12 @@ const Feedback = () => {
     return () => {
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
+  }, []);
+
+  useEffect(() => {
+    const key = window.setTimeout(() => {
+        if(!window.localStorage.getItem("rate")) setOpen(true)
+    }, 10000);
   }, []);
 
   return (
