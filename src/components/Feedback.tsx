@@ -36,27 +36,27 @@ const Feedback = () => {
       });
   };
 
-  useEffect(() => {
-    const handleMouseLeave = (event: MouseEvent) => {
-      if (!window.localStorage.getItem("rate") && count > 3) {
-        setOpen(true);
-      }
-      setCount((state) => state + 1);
+  // useEffect(() => {
+  //   const handleMouseLeave = (event: MouseEvent) => {
+  //     if (!window.localStorage.getItem("rate") && count > 3) {
+  //       setOpen(true);
+  //     }
+  //     setCount((state) => state + 1);
 
-    };
+  //   };
 
-    document.addEventListener("mouseleave", handleMouseLeave);
+  //   document.addEventListener("mouseleave", handleMouseLeave);
 
-    return () => {
-      document.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("mouseleave", handleMouseLeave);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    const key = window.setTimeout(() => {
-        if(!window.localStorage.getItem("rate")) setOpen(true)
-    }, 10000);
-  }, []);
+  // useEffect(() => {
+  //   const key = window.setTimeout(() => {
+  //       if(!window.localStorage.getItem("rate")) setOpen(true)
+  //   }, 10000);
+  // }, []);
 
   return (
     <section

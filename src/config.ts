@@ -5,6 +5,7 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 import codingGameLogo from "../public/images/codingGameLogo.jpeg";
 import hub2Logo from "../public/images/hub2Logo.jpeg";
+import wazaLogo from "../public/images/wazaLogo.jpeg";
 import coollionLogo from "../public/images/coollionLogo.png";
 import novateDigitale from "../public/images/NovateDigitalLogo.jpeg";
 
@@ -18,6 +19,8 @@ import fasto from "../public/images/fasto.png";
 import fastoapp from "../public/images/fastoapp.png";
 import kori from "../public/images/koriinvest.png";
 import adinkra from "../public/images/adinkra.png";
+import gapila from "../public/images/gapila.png";
+import nanapicks from "../public/images/nanapicks.png";
 
 type routePath = { path: string; name: string; hidden?: boolean };
 type servicesPath = {
@@ -60,7 +63,7 @@ export interface WEBCONFIG {
       img: string | StaticImport;
       tags: string[];
       link: string;
-      github: string;
+      github?: string;
     }[];
   };
   about: {
@@ -139,7 +142,7 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
       home: {
         title: "Full Stack Developer",
         subTitle: "Hi 👋, I'm Sylla Ibrahim",
-        content: "good design makes the world a better place",
+        content: "Join me in turning your project ideas into reality!",
         button1: { path: "#work", name: "My Work" },
         button2: { path: "#contact", name: "Let's talk" },
       },
@@ -183,6 +186,22 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
             tags: ["#Reactjs", "#MUI", "#Typescript", "#Mapbox"],
             link: "https://www.adinkrainstitute.com/",
             github: "https://github.com/sylla156/Adinkra_Institute.git",
+          },
+          {
+            title: "Gapila",
+            img: gapila,
+            content: `Un système de génération d’avis ludique : Avec GAPILA, collectez des avis Google de façon amusante grâce à des QR codes personnalisés et des jeux concours. Offrez des récompenses pour encourager vos clients à participer, boostant votre visibilité et leur engagement.`,
+            tags: ["#Nextjs", "#Shadcn", "#Strapi", "#Tailwind"],
+            link: "https://www.gapila.com/",
+          },
+          {
+            title: "Nanapicks",
+            img: nanapicks,
+            content:
+              "NanaPicks is a revolutionary prediction platform empowering users worldwide to make bold predictions on real-world events and earn big rewards. From sports to finance and beyond, NanaPicks lets you turn your insights into earnings.",
+            tags: ["#Reactjs", "#Shadcn", "#Tailwind"],
+            link: "https://nanapicks.com/",
+            github: "https://github.com/coollionfinance1/nana-picks.git",
           },
           {
             title: "Invest Kori",
@@ -245,39 +264,46 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
           "Communication is vital in any development project, and I have professional proficiency in English, enabling effective collaboration with cross-functional teams and clients. I am comfortable communicating technical concepts and discussing project requirements in English, ensuring smooth and efficient teamwork.",
           "I am passionate about staying up-to-date with the latest industry trends and continuously learning new technologies. I actively participate in developer communities and engage in personal projects to expand my knowledge and skills.",
         ],
-        quote: "❤️ I love good design, gaming, art, Netflix, and gadgets.",
+        quote: "Let's have fun discussing your project! 💬",
         card: [
+          {
+            img: wazaLogo,
+            imgDark: wazaLogo,
+            title: "Waza.",
+            content: "Full Stack Software Engineer",
+            link: "https://www.waza.solutions/",
+            linkContent: "View the company",
+          },
           {
             img: hub2Logo,
             imgDark: hub2Logo,
-            title: "Full Stack Software Engineer",
-            content: "Building Scalable Solutions",
+            title: "Hub2",
+            content: "Full Stack Software Engineer",
             link: "https://www.linkedin.com/company/hub2/",
             linkContent: "View the company",
           },
-
           {
             img: novateDigitale,
             imgDark: novateDigitale,
-            title: "Front-End Developer",
+            title: "Novate Digital",
             content:
-              "Experienced in JavaScript Technologies for Web Excellence",
+              "Front-End Developer",
             link: "https://www.linkedin.com/company/novate-media-cote-d-ivoire/",
             linkContent: "View the company",
           },
           {
             img: coollionLogo,
             imgDark: coollionLogo,
-            title: "Full Stack Engineer",
-            content: "Crypto Development and Smart Contracts",
+            title: "Cool Lion Finance",
+            content: "Full Stack Engineer",
             link: "https://www.linkedin.com/in/richardseshie/",
             linkContent: "View the company",
           },
           {
             img: codingGameLogo,
             imgDark: codingGameLogo,
-            title: "Certification javascript and typescript",
-            content: "Coding game",
+            title: "Coding Game",
+            content: "Certification javascript and typescript",
             link: [
               "https://www.codingame.com/certification/N2ieM4oRBEGvt4phtYRh9g",
               "https://www.codingame.com/certification/NTLexEb1A8_oXOsx7SbS3w",
@@ -291,7 +317,7 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
         content: "I am always open to discuss",
         email: {
           title: "📧 Email me at",
-          link: "ibrahimsyllac196@gmail.com",
+          link: "contact@ibrahimcode.dev",
         },
         network: {
           title: "Follow",
@@ -324,7 +350,7 @@ const GlobaleWebConfig: GLOBALEWEBCONFIG = {
         section2: {
           title: "Designed using Figma",
           github: {
-            title: "Hosted on Github Pages",
+            title: "Hosted on Github",
             link: "https://github.com/sylla156/Next_Training_1.git",
           },
         },

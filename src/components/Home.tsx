@@ -92,8 +92,8 @@ const Presentation = () => {
 
         // get offset from middle as a percentage
         // and tone it down a little
-        const offsetX = ((x - middleX) / middleX) * 45;
-        const offsetY = ((y - middleY) / middleY) * 45;
+        const offsetX = ((x - middleX) / middleX) * 5;
+        const offsetY = ((y - middleY) / middleY) * 5;
         
 
         // set rotation

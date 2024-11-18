@@ -14,9 +14,9 @@ const transporter = nodemailer.createTransport({
 export async function POST(request: Request) {
   const body = await request.json();
   const formSchema = z.object({
-    name: z.string().min(2),
+    name: z.string().min(2).optional(),
     email: z.string().email(),
-    url: z.string().url(),
+    url: z.string().url().optional(),
     desc: z.string().optional(),
   });
 
@@ -28,10 +28,10 @@ export async function POST(request: Request) {
         subject: "Portfolio Email (Opportunites)", // Subject line
         text: "Hello better", // mlain text body
         html: `<div>
-    <h2> name: ${body.name} </h2> <br/>
-    <h2> email: ${body.name}</h2> <br/>
-    <h2> url: ${body.url} </h2> <br/>
-    <h2> desc:</h2> <p>${body.desc}</p><br/>
+    <h2> name: ${body?.name} </h2> <br/>
+    <h2> email: ${body.email}</h2> <br/>
+    <h2> url: ${body?.url} </h2> <br/>
+    <h2> desc:</h2> <p>${body?.desc}</p><br/>
       </div>`, // html body
       });
     } catch (error) {

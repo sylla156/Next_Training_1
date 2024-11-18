@@ -11,16 +11,21 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const formSchema = z.object({
-  name: z.string().min(2),
+  name: z.string().min(2).optional(),
   email: z.string().email(),
-  url: z.string().url(),
+  url: z.string().url().optional(),
   desc: z.string().optional(),
 });
 
 type formType = z.infer<typeof formSchema>;
 
 const Contact = () => {
-  const { register, handleSubmit, reset } = useForm<formType>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<formType>({
     resolver: zodResolver(formSchema),
   });
   const [loading, setLoading] = React.useState(false);
@@ -65,7 +70,7 @@ const Contact = () => {
           alertSucces ? "show" : "hide"
         } font-regular mb-4 block rounded-lg bg-green-500 p-4 text-base leading-5 text-white opacity-100`}
       >
-        {`📬 Ooooh, c'est une nouvelle lettre dans ma boîte, Merci !`}
+        {`Oooh, merci beaucoup ! 📬`}
       </div>
       <div
         className={`font-regular fixed top-5 right-5 transition-all ${
@@ -108,26 +113,25 @@ const Contact = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col justify-between items-end h-full gap-y-7 w-full"
         >
-          <input
-            type="text"
-            placeholder={WebConfig.contact.form.name}
-            {...register("name")}
-          />
-          <input
-            type="email"
-            placeholder={WebConfig.contact.form.email}
-            {...register("email")}
-          />
-          <input
-            type="url"
-            placeholder={WebConfig.contact.form.website}
-            {...register("url")}
-          />
+          <div className="w-full">
+            <input
+              type="email"
+              placeholder={WebConfig.contact.form.email}
+              {...register("email")}
+              className={errors.email ? "input_error" : ""}
+            />
+            {errors.email && (
+              <p className="error_message m-1 text-red-600 text-[0.9rem]" style={{color:'rgb(220 38 38 / var(--tw-text-opacity))'}}>{errors.email.message}</p>
+            )}
+          </div>
           <textarea
             placeholder={WebConfig.contact.form.desc}
-            className="textarea"
             {...register("desc")}
+            className={errors.desc ? "input_error textarea" : "textarea"}
           />
+          {errors.desc && (
+            <p className="error_message">{errors.desc.message}</p>
+          )}
           <button
             type="submit"
             className="button_secondary_sm"

@@ -28,16 +28,16 @@ const About = () => {
           ))}
         </div>
 
-        <div className="w-full lg:w-[35%] mt-5 lg:mt-0 flex flex-row lg:flex-col flex-wrap lg:justify-start justify-between items-end sm:items-start gap-10">
+        <div className="w-full lg:w-[35%] mt-5 lg:mt-0 flex flex-row lg:flex-col flex-wrap lg:justify-start justify-between items-end sm:items-start gap-5">
           {WebConfig.about.card.map((card) => (
             <div key={card.title} className="w-[calc((100%)-2em)] sm:w-[calc((100%/3)-2em)]  lg:w-auto">
               <Image
                 src={themeColor.theme === "light" ? card.img : card.imgDark}
                 alt={card.title}
-                className="w-[50px] h-auto object-cover mb-5"
+                className="w-[50px] h-auto object-cover mb-1"
               />
               <h5 className="capitalize">{card.title}</h5>
-              <p className="mb-2">{card.content}</p>
+              <p className="">{card.content}</p>
               {typeof card.link === "string" ? (
                 <Link href={card.link} className="text-primary">
                   <span>{card.linkContent}</span>
